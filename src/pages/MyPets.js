@@ -1,37 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './MyPets.css';
-import profilePlaceholder from './assets/profile-placeholder.png'; // Substitua pelo caminho da sua imagem padrão de perfil
+import logo from './assets/images/logo.png';
+import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
 
 function MyPets() {
-  // Este estado inicialmente terá uma lista falsa de pets para prototipagem
-  // No futuro, você buscará essa lista do backend
   const [pets, setPets] = useState([
-    { id: 1, name: 'Café', photo: 'path_to_cafes_photo.jpg' },
-    { id: 2, name: 'Ranziza', photo: 'path_to_ranzizas_photo.jpg' }
-    // Adicione mais pets aqui
+    { id: 1, name: 'Café', photo: profilePlaceholder },
+    { id: 2, name: 'Ranziza', photo: profilePlaceholder }
+    // outros pets...
   ]);
 
-  // TODO: Substituir com função para carregar pets do backend
-  useEffect(() => {
-    // Fetch pets from backend and set them in state
-  }, []);
+  // função para lidar com o clique no pet
+  const handlePetClick = (petId) => {
+    // integrar com o backend para levar para a tela do pet, individualmente
+    console.log("Pet clicked:", petId);
+    // EX: navigate(`/pets/${petId}`);
+  };
+
+  const handleAddPet = () => {
+    console.log('Adicionar um novo pet');
+  };
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearch = () => {
+    console.log('Função de busca acionada com:', searchTerm);
+    // incluir chamada para o backend
+  };
 
   return (
     <div className="mypets-container">
-      <h1>Meus pets</h1>
-      <button className="button">Cadastrar pet</button>
-      <div className="pet-list">
-        {pets.map((pet) => (
-          <div key={pet.id} className="pet-item">
-            <img src={pet.photo || profilePlaceholder} alt={pet.name} className="pet-photo" />
-            <div className="pet-info">
-              <h2 className="pet-name">{pet.name}</h2>
-              <button className="details-button">👉</button>
-            </div>
-          </div>
-        ))}
+      <img src={logo} alt="ByteVet Logo" className="mypets-logo" />
+      <h1 className="mypets-title">ByteVet</h1>
+      <div className="search-bar">
+        <input type="text" placeholder="Buscar..." className="input-field" onChange={handleSearchChange} />
+        <button className="search-button" onClick={handleSearch}>🔍</button>
       </div>
-      {/* Aqui você pode adicionar mais funcionalidades e botões, como adicionar um novo pet */}
+      <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
+      <h1 className="mypets-header">Meus pets</h1>
+      {pets.map((pet) => (
+        <button key={pet.id} className="pet-button" onClick={() => handlePetClick(pet.id)}>
+          <img src={pet.photo} alt={pet.name} className="pet-photo" />
+          {pet.name}
+        </button>
+      ))}
     </div>
   );
 }
