@@ -8,7 +8,7 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Lógica para processar o login
+    // lógica para processar o login
     console.log('Login attempt:', { email, password });
   };
 
@@ -16,7 +16,6 @@ function Login() {
     <div className="login-background">
       <div className="login-container">
         <div className="login-logo">
-          {/* Use a variável logo para o atributo src */}
           <img src={logo} alt="ByteVet" />
         </div>
         <h1 className="login-title">ByteVet</h1>
