@@ -1,73 +1,70 @@
-/* RegisterPet.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
 .register-pet-container {
   font-family: 'Inter', sans-serif;
-  background-color: #0B5858; /* Mantendo a cor de fundo */
-  background-image: url('./assets/images/bg-icons.png'); /* Mesma imagem de fundo */
+  background-color: #0B5858;
+  background-image: url('./assets/images/bg-icons.png');
   background-size: contain;
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  padding: 20px; /* Ajuste conforme necessário */
-  overflow-y: auto; /* Habilitar scroll se necessário */
+}
+
+.register-pet-header {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.register-pet-logo {
+  margin-bottom: 0.25rem;
 }
 
 .register-pet-title {
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 2rem; /* Ajuste o tamanho conforme necessário */
   font-weight: 800;
   color: #ffffff;
-  margin-bottom: 20px; /* Espaçamento do título */
+  margin-top: 0;
 }
 
 .register-pet-form {
   width: 100%;
-  max-width: 320px; /* Largura máxima como nos botões */
+  max-width: 320px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-.register-pet-input {
-  background-color: #FFFFFF;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-family: 'Inter', sans-serif;
-}
-
-.register-pet-button {
+.button {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: white;
-  background-color: #4caf50; /* Cor padrão dos botões */
+  background-color: #4caf50;
   padding: 15px 20px;
-  margin-top: 10px;
+  margin-bottom: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%; /* Para expandir ao tamanho do contêiner */
-}
-
-.register-pet-button.add-pet {
-  background-color: #E6B800; /* Cor para o botão de adicionar pet */
-}
-
-.register-pet-button.secondary {
-  background-color: #ccc; /* Cor secundária para botões adicionais */
-  color: #333;
-}
-
-.register-pet-checkbox {
+  width: 320px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  color: white; /* Cor do texto para o checkbox */
+  justify-content: center;
+}
+
+.button.register {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.button.add {
+  margin-top: 2px;
+  background-color: #f0ad4e;
+  align-self: center;
 }
 
 .register-pet-label {
@@ -76,24 +73,13 @@
     margin-bottom: 5px;
   }
   
-  .register-pet-input {
-    width: 100%; /* Faz o input se expandir para a largura do container */
-    padding: 10px;
-    margin-bottom: 15px; /* Espaçamento entre os campos */
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.register-pet-input {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: 'Inter', sans-serif;
   }
+  
 
-  .secondary-button {
-    background-color: #f0ad4e; /* ou qualquer outra cor desejada */
-    color: white;
-    padding: 10px 15px; /* Reduz o padding para diminuir o botão */
-    margin: 5px 0; /* Menor margem para menos espaço entre elementos */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: auto; /* Ajusta automaticamente a largura ao conteúdo */
-    align-self: center; /* Centraliza o botão no container, se necessário */
-  }
-
-/* Adicione mais estilos conforme necessário */

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RegisterPet.css'; // Supondo que você criará um arquivo CSS para isso
+import './RegisterPet.css';
 import logo from './assets/images/logo.png';
 
 function RegisterPet() {
@@ -18,13 +18,14 @@ function RegisterPet() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aqui você faria a chamada para o backend para registrar o pet
+    // aqui a chamada para o backend para registrar o pet
     console.log(pet);
   };
 
   return (
     <div className="register-pet-container">
       <img src={logo} alt="ByteVet Logo" className="mypets-logo" />
+      <h1 className="mypets-title">ByteVet</h1>
       <h1 className="register-pet-title">Cadastrar Pet</h1>
       <form onSubmit={handleSubmit} className="register-pet-form">
         <label className="register-pet-label">
@@ -49,18 +50,20 @@ function RegisterPet() {
             required
           />
         </label>
-        {/* Outros campos de input conforme necessário */}
-        <button type="submit" className="register-pet-button">
-          Cadastrar
-        </button>
-      </form>
-      <button className="secondary-button">
-        Adicionar Consulta
+        <button className="button add">
+        Adicionar consulta
       </button>
-      <button className="secondary-button">
-        Adicionar Cartão de Vacina
+      <button className="button add">
+        Adicionar Cartão de vacina
       </button>
-    </div>
+      <button className="button add">
+        Adicionar foto
+      </button>
+      <button type="submit" className="button register">
+        Cadastrar
+      </button>
+    </form>
+  </div>
   );
 }
 
