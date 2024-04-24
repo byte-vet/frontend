@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import './MyPets.css';
 import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 function MyPets() {
+  let navigate = useNavigate();
   const [pets, setPets] = useState([
     { id: 1, name: 'Café', photo: profilePlaceholder },
     { id: 2, name: 'Ranziza', photo: profilePlaceholder }
@@ -18,7 +20,7 @@ function MyPets() {
   };
 
   const handleAddPet = () => {
-    console.log('Adicionar um novo pet');
+    navigate('/add-pet');
   };
 
   const [searchTerm, setSearchTerm] = useState('');

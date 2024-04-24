@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './Home.css';
 import logo from './assets/images/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  let navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchChange = (event) => {
@@ -28,7 +30,7 @@ function Home() {
   };
 
   const handleAddPet = () => {
-    console.log('Adicionar um novo pet');
+    navigate('/add-pet');
   };
 
   const handleProfile = () => {
