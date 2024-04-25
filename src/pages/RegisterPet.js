@@ -6,7 +6,8 @@ function RegisterPet() {
   const [pet, setPet] = useState({
     name: '',
     age: '',
-    type: '', // Add state for pet type
+    type: '',
+    weight: '',
   });
 
   const [showDropdown, setShowDropdown] = useState(false); // State for dropdown visibility
@@ -61,6 +62,17 @@ function RegisterPet() {
             className="register-pet-input"
             type="number"
             name="age"
+            value={pet.age}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label className="register-pet-label">
+          Peso (em kg):
+          <input
+            className="register-pet-input"
+            type="number"
+            name="weight"
             value={pet.age}
             onChange={handleChange}
             required
