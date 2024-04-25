@@ -8,6 +8,7 @@ function RegisterPet() {
     age: '',
     type: '',
     weight: '',
+    race: '',
   });
 
   const [showDropdown, setShowDropdown] = useState(false); // State for dropdown visibility
@@ -41,8 +42,8 @@ function RegisterPet() {
 
   return (
     <div className="register-pet-container">
-      <img src={logo} alt="ByteVet Logo" className="mypets-logo" />
-      <h1 className="mypets-title">ByteVet</h1>
+      <img src={logo} alt="ByteVet Logo" className="register-pet-logo" />
+      <h1 className="register-pet-title">ByteVet</h1>
       <h1 className="register-pet-title">Cadastrar Pet</h1>
       <form onSubmit={handleSubmit} className="register-pet-form">
         <label className="register-pet-label">
@@ -63,6 +64,17 @@ function RegisterPet() {
             type="number"
             name="age"
             value={pet.age}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label className="register-pet-label">
+          Raça:
+          <input
+            className="register-pet-input"
+            type="text"
+            name="race"
+            value={pet.name}
             onChange={handleChange}
             required
           />
