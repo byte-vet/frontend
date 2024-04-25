@@ -22,8 +22,8 @@ function MyPet() {
       <img src={pet.photo} alt={pet.name} className="my-pet-photo" />
       <h1 className="pet-name">{pet.name}</h1>
       <p className="pet-age">Idade: {pet.age} anos</p>
-      <div className="vaccine-card-container">
-        <h2>Cartão de Vacinação</h2>
+      <div className="button-pet">
+        <h2>Cartão de Vacinação </h2>
         <ul className="vaccine-list">
           {pet.vaccineCard.map((entry, index) => (
             <li key={index} className="vaccine-entry">
@@ -33,6 +33,7 @@ function MyPet() {
           ))}
         </ul>
       </div>
+      <button className="button-pet-edit">Editar</button>
     </div>
   );
 }

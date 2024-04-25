@@ -30,10 +30,50 @@
   margin-bottom: 2rem; /* Espaçamento */
 }
 
+.vaccine-date,
+.vaccine-name {
+  font-size: 0.9rem; /* Diminuir a fonte para 0.9rem ou o tamanho desejado */
+  color: #ffffff; /* Ajustar a cor se necessário */
+}
+
 .my-pet-photo {
   width: 120px; /* Tamanho da foto */
   height: 120px; /* Tamanho da foto */
   border-radius: 50%; /* Arredondamento da foto */
   object-fit: cover; /* Ajuste da foto */
   margin-bottom: 1rem; /* Espaçamento abaixo da foto */
+}
+
+.button-pet {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: small;
+  color: white;
+  background-color: #4caf50;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-pet-edit {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: small;
+  color: white;
+  background-color: rgb(226, 102, 102);
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
