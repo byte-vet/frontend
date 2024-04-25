@@ -5,8 +5,12 @@ import logo from './assets/images/logo.png';
 function RegisterPet() {
   const [pet, setPet] = useState({
     name: '',
-    age: ''
+    age: '',
+    type: '', // Add state for pet type
   });
+
+  const [showDropdown, setShowDropdown] = useState(false); // State for dropdown visibility
+  const petTypes = ['Cachorro', 'Gato', 'Peixe', 'Pássaro', 'Coelho', 'Roedor', 'Réptil', 'Outro']; // Array of pet types
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -16,9 +20,21 @@ function RegisterPet() {
     }));
   };
 
+  const handlePetTypeClick = (type) => {
+    setPet(prevPet => ({
+      ...prevPet,
+      type,
+    }));
+    setShowDropdown(false); // Hide dropdown on selection
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown); // Toggle dropdown visibility
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // aqui a chamada para o backend para registrar o pet
+    // Here the call to the backend for registering the pet
     console.log(pet);
   };
 
@@ -50,20 +66,43 @@ function RegisterPet() {
             required
           />
         </label>
+        <form onSubmit={handleSubmit} className="register-pet-form">
+        <div className="register-pet-select-wrapper">
+          <label className="register-pet-label">
+            Tipo de Pet:
+            <select
+              className="register-pet-select"
+              name="type"
+              value={pet.type}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Selecione o tipo de pet</option>
+              <option value="dog">Cachorro</option>
+              <option value="cat">Gato</option>
+              <option value="fish">Peixe</option>
+              <option value="bird">Pássaro</option>
+              <option value="rodent">Roedor</option>
+              <option value="reptile">Réptil</option>
+              <option value="other">Outro</option>
+            </select>
+          </label>
+        </div>
+  </form>
         <button className="button add">
-        Adicionar consulta
-      </button>
-      <button className="button add">
-        Adicionar Cartão de vacina
-      </button>
-      <button className="button add">
-        Adicionar foto
-      </button>
-      <button type="submit" className="button register">
-        Cadastrar
-      </button>
-    </form>
-  </div>
+          Adicionar consulta
+        </button>
+        <button className="button add">
+          Adicionar Cartão de vacina
+        </button>
+        <button className="button add">
+          Adicionar foto
+        </button>
+        <button type="submit" className="button register">
+          Cadastrar
+        </button>
+      </form>
+    </div>
   );
 }
 

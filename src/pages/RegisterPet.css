@@ -14,6 +14,36 @@
   height: 100vh;
 }
 
+.register-pet-select-wrapper {
+  position: relative;
+  width: 320px;
+}
+
+.register-pet-select {
+  width: 100%;
+  padding: 10px 30px 10px 10px; /* padding-right maior para acomodar a seta */
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: 'Inter', sans-serif;
+  background-color: #FFFFFF;
+  -webkit-appearance: none; /* Remove a aparência padrão do select no Chrome */
+  -moz-appearance: none; /* Remove a aparência padrão do select no Firefox */
+  appearance: none; /* Remove a aparência padrão do select */
+  cursor: pointer;
+}
+
+.register-pet-select-wrapper::after {
+  content: '▼'; /* Ícone da seta */
+  font-size: 12px; /* Tamanho da fonte do ícone da seta */
+  color: #333; /* Cor da seta */
+  position: absolute; /* Posicionamento absoluto */
+  right: 10px; /* Posicionado à direita */
+  top: 50%; /* Centralizado verticalmente */
+  pointer-events: none; /* O ícone não afetará os eventos de clique */
+  transform: translateY(-50%); /* Centralizado verticalmente com precisão */
+}
+
 .register-pet-header {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 36px;
@@ -81,5 +111,3 @@
   border: 1px solid #ccc;
   font-family: 'Inter', sans-serif;
   }
-  
-

@@ -37,34 +37,3 @@
   object-fit: cover; /* Ajuste da foto */
   margin-bottom: 1rem; /* Espaçamento abaixo da foto */
 }
-
-.vaccine-card-container {
-  background-color: #ffffff; /* Fundo branco para o cartão */
-  border-radius: 8px; /* Bordas arredondadas */
-  padding: 15px; /* Espaçamento interno */
-  margin-top: 20px; /* Espaçamento do topo */
-  width: 320px; /* Largura do cartão */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para destaque */
-}
-
-.vaccine-list {
-  list-style-type: none; /* Remover estilos de lista */
-  padding: 0; /* Remover padding padrão */
-  margin: 0; /* Remover margin padrão */
-}
-
-.vaccine-entry {
-  padding: 10px 0; /* Espaçamento vertical */
-  border-bottom: 1px solid #eee; /* Linha separadora */
-  display: flex; /* Disposição em linha */
-  justify-content: space-between; /* Espaçamento entre itens */
-}
-
-.vaccine-date {
-  font-weight: bold; /* Negrito para a data */
-  color: #333; /* Cor do texto */
-}
-
-.vaccine-name {
-  color: #666; /* Cor do texto */
-}
