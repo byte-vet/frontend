@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Home from './pages/Home';
 import MyPets from './pages/MyPets';
 import RegisterPet from './pages/RegisterPet';
+import MyPet from './pages/MyPet';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/mypets" element={<MyPets />} />
         <Route path="/add-pet" element={<RegisterPet/>}/>
+        <Route path="/mypet" element={<MyPet/>}/>
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>
