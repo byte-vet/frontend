@@ -13,10 +13,10 @@ function MyPet({ petId, token }) { // Assumindo que petId e token são passados 
   useEffect(() => {
     const fetchPet = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/animais/${petId}`, {
+        const response = await fetch(`http://localhost:3000/users/${token}/pets/${petId}`, {
           method: 'GET',
           headers: {
-            'Authorization': `Bearer ${token}` // Certifique-se de que o token está sendo passado corretamente
+            'Authorization': `Bearer ${data.token}` // Certifique-se de que o token está sendo passado corretamente
           }
         });
         

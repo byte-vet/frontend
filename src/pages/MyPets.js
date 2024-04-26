@@ -14,9 +14,8 @@ function MyPets() {
 
   // função para lidar com o clique no pet
   const handlePetClick = (petId) => {
-    // integrar com o backend para levar para a tela do pet, individualmente
-    console.log("Pet clicked:", petId);
-    navigate(`/mypet/${petId}`);
+    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+    navigate(`/mypet/${petId}`, { state: { token } });
   };
 
   const handleAddPet = () => {

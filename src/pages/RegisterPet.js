@@ -44,13 +44,13 @@ function RegisterPet() {
     }
     // Substitua 'http://localhost:3000/animais' pelo endpoint correto se necessário.
     // Certifique-se de que você tem um token válido se a autenticação for necessária.
-    const endpoint = 'http://localhost:3000/animais';
+    const endpoint = `http://localhost:3000/users/${token}/pets`;
   
     // Construa o objeto com os dados do pet
     const petData = {
-      usuario: '1233333', // Substitua pelo ID do usuário logado
+      usuario: token, // Substitua pelo ID do usuário logado
       nome: pet.name,
-      especie: pet.type, // Certifique-se de que este campo corresponda com o enum do backend
+      especie: pet.type.toLowerCase(), // Certifique-se de que este campo corresponda com o enum do backend
       raca: pet.race.toLowerCase(),
       idade: Number(pet.age),
       peso: Number(pet.weight)
@@ -62,7 +62,7 @@ function RegisterPet() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer bytevet',
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify(petData) // Transforme o objeto petData em uma string JSON
       });
