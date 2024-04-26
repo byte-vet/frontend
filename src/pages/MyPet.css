@@ -2,6 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
+.mypet-header {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.mypet-logo {
+  margin-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+.mypet-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 0px;
+}
+
 .pet-container {
   font-family: 'Inter', sans-serif;
   background-color: #0B5858;
@@ -12,68 +31,52 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  overflow-y: auto; /* Permitir rolagem se o conteúdo for longo */
-  padding-top: 5rem; /* Espaçamento do topo */
+  overflow-y: hidden;
+  display: flex;
 }
 
 .pet-name {
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 2.5rem; /* Tamanho da fonte do nome do pet */
-  color: #ffffff; /* Cor do texto */
-  margin: 1rem 0; /* Espaçamento */
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 1rem 0;
 }
 
 .pet-age {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem; /* Tamanho da fonte da idade */
-  color: #ffffff; /* Cor do texto */
-  margin-bottom: 2rem; /* Espaçamento */
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
 }
 
-.vaccine-date,
-.vaccine-name {
-  font-size: 0.9rem; /* Diminuir a fonte para 0.9rem ou o tamanho desejado */
-  color: #ffffff; /* Ajustar a cor se necessário */
-}
-
-.my-pet-photo {
-  width: 120px; /* Tamanho da foto */
-  height: 120px; /* Tamanho da foto */
-  border-radius: 50%; /* Arredondamento da foto */
-  object-fit: cover; /* Ajuste da foto */
-  margin-bottom: 1rem; /* Espaçamento abaixo da foto */
-}
-
-.button-pet {
+.pet-info {
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: small;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.pet-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.button-vaccination-card {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   color: white;
-  background-color: #4caf50;
-  padding: 15px 20px;
-  margin-bottom: 10px;
+  padding: 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button-pet-edit {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: small;
-  color: white;
-  background-color: rgb(226, 102, 102);
-  padding: 15px 20px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 11%;
+  background-color: #f44336;
+  margin-top: 1rem;
+  text-align: center;
 }
