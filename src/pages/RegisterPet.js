@@ -34,11 +34,56 @@ function RegisterPet() {
     setShowDropdown(!showDropdown); // Toggle dropdown visibility
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Here the call to the backend for registering the pet
-    console.log(pet);
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      alert('Você precisa estar logado para cadastrar um pet.');
+      return;
+    }
+    // Substitua 'http://localhost:3000/animais' pelo endpoint correto se necessário.
+    // Certifique-se de que você tem um token válido se a autenticação for necessária.
+    const endpoint = 'http://localhost:3000/animais';
+  
+    // Construa o objeto com os dados do pet
+    const petData = {
+      usuario: '1233333', // Substitua pelo ID do usuário logado
+      nome: pet.name,
+      especie: pet.type, // Certifique-se de que este campo corresponda com o enum do backend
+      raca: pet.race.toLowerCase(),
+      idade: Number(pet.age),
+      peso: Number(pet.weight)
+    };
+  
+    try {
+      // Faça a requisição para o backend
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer bytevet',
+        },
+        body: JSON.stringify(petData) // Transforme o objeto petData em uma string JSON
+      });
+  
+      const responseData = await response.json(); // Obtenha a resposta JSON do servidor
+  
+      if (response.ok) {
+        console.log('Pet cadastrado com sucesso!', responseData);
+        // Aqui você pode redirecionar o usuário ou atualizar a UI conforme necessário
+      } else {
+        // Se a resposta não for ok, mostre uma mensagem de erro
+        console.error('Erro ao cadastrar pet:', responseData.message);
+        alert(`Erro ao cadastrar pet: ${responseData.message}`);
+      }
+    } catch (error) {
+      // Se ocorrer um erro na requisição, mostre-o no console e informe o usuário
+      console.error('Erro na requisição:', error);
+      alert('Erro na requisição de cadastro do pet.');
+    }
   };
+  
 
   return (
     <div className="register-pet-container">
@@ -74,7 +119,7 @@ function RegisterPet() {
             className="register-pet-input"
             type="text"
             name="race"
-            value={pet.name}
+            value={pet.race}
             onChange={handleChange}
             required
           />
@@ -85,7 +130,7 @@ function RegisterPet() {
             className="register-pet-input"
             type="number"
             name="weight"
-            value={pet.age}
+            value={pet.weight}
             onChange={handleChange}
             required
           />
@@ -102,13 +147,13 @@ function RegisterPet() {
               required
             >
               <option value="">Selecione o tipo de pet</option>
-              <option value="dog">Cachorro</option>
-              <option value="cat">Gato</option>
-              <option value="fish">Peixe</option>
-              <option value="bird">Pássaro</option>
-              <option value="rodent">Roedor</option>
-              <option value="reptile">Réptil</option>
-              <option value="other">Outro</option>
+              <option value="cachorro">Cachorro</option>
+              <option value="gato">Gato</option>
+              <option value="peixe">Peixe</option>
+              <option value="passaro">Pássaro</option>
+              <option value="roedor">Roedor</option>
+              <option value="reptil">Réptil</option>
+              <option value="outro">Outro</option>
             </select>
           </label>
         </div>

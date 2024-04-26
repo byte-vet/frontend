@@ -8,15 +8,20 @@ import RegisterPet from './pages/RegisterPet';
 import MyPet from './pages/MyPet';
 
 function App() {
+
+  const userToken = 'token_do_usuario_aqui';
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<RegisterPet />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Register />} />
+        <Route path="/register-pet" element={<RegisterPet />} />
         <Route path="/home" element={<Home />} />
         <Route path="/mypets" element={<MyPets />} />
         <Route path="/add-pet" element={<RegisterPet/>}/>
         <Route path="/mypet" element={<MyPet/>}/>
+        <Route path="/mypet/:petId" element={<MyPet token={userToken} />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>

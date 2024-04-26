@@ -14,21 +14,24 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
 
+    console.log(`Registrando com senha: ${password} e confirmação: ${confirmPassword}`);
+
     if (password !== confirmPassword) {
       alert("As senhas não coincidem.");
       return;
     }
 
     try {
-      const response = await fetch('ENDPOINT_DE_REGISTRO_SUBSTITUIR_DEPOIS', {
+      const response = await fetch('http://localhost:3000/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer bytevet`
         },
         body: JSON.stringify({
           fullName, // assumindo que o backend espera um campo 'fullName'
           email,
-          password,
+          password
         }),
       });
 

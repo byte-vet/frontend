@@ -6,11 +6,31 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // lógica para processar o login
-    console.log('Login attempt:', { email, password });
+    // Função para lidar com o login
+  const handleLogin = async (email, password) => {
+    try {
+      const response = await fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Salva o token no localStorage ou no estado do aplicativo
+        localStorage.setItem('token', data.token);
+        console.log('Login realizado com sucesso!');
+      } else {
+        console.error('Erro no login:', data.message);
+      }
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+    }
   };
+
 
   return (
     <div className="login-background">
