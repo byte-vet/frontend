@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './Login.css';
 import logo from './assets/images/logo.png'; // Importação correta do logo
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
     // Função para lidar com o login
   const handleLogin = async (email, password) => {
@@ -23,6 +25,7 @@ function Login() {
         // Salva o token no localStorage ou no estado do aplicativo
         localStorage.setItem('token', data.token);
         console.log('Login realizado com sucesso!');
+        navigate('/home');
       } else {
         console.error('Erro no login:', data.message);
       }
