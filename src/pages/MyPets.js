@@ -6,10 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 function MyPets() {
   let navigate = useNavigate();
-  const [pets, setPets] = useState([]);
   const [petAdded, setPetAdded] = useState(false);
+  const [pets, setPets] = useState([
+    { id: 1, name: 'Café', photo: profilePlaceholder },
+    { id: 2, name: 'Ranziza', photo: profilePlaceholder }
+    // outros pets...
+  ]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchPets = async () => {
     // função para lidar com o clique no pet
     const userId = localStorage.getItem('userId');
@@ -42,7 +46,7 @@ function MyPets() {
 
     fetchPets();
     setPetAdded(false);
-  }, [navigate, petAdded]);
+  }, [navigate, petAdded]);*/
 
   const handleAddPet = () => {
     navigate('/add-pet', { state: { onPetAdded: () => setPetAdded(true) } });
