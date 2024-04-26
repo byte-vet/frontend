@@ -26,6 +26,7 @@ function Login() {
       if (response.ok) {
         // Salva o token no localStorage ou no estado do aplicativo
         localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.id);
         console.log('Login realizado com sucesso!');
         navigate('/home');
       } else {
