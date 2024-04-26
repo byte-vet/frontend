@@ -12,6 +12,7 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleRegister = async (e) => {
+    const token = localStorage.getItem('token');
     e.preventDefault();
 
     console.log(`Registrando com senha: ${password} e confirmação: ${confirmPassword}`);
@@ -26,7 +27,7 @@ function Register() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer bytevet`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           fullName, // assumindo que o backend espera um campo 'fullName'

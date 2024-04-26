@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './RegisterPet.css';
 import logo from './assets/images/logo.png';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function RegisterPet() {
+  const navigate = useNavigate();
+  let location = useLocation();
   const [pet, setPet] = useState({
     name: '',
     age: '',
@@ -36,6 +39,7 @@ function RegisterPet() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token');
 
     if (!token) {
@@ -44,11 +48,11 @@ function RegisterPet() {
     }
     // Substitua 'http://localhost:3000/animais' pelo endpoint correto se necessário.
     // Certifique-se de que você tem um token válido se a autenticação for necessária.
-    const endpoint = `http://localhost:3000/users/${token}/pets`;
+    const endpoint = `http://localhost:3000/users/${userId}/pets`;
   
     // Construa o objeto com os dados do pet
     const petData = {
-      usuario: token, // Substitua pelo ID do usuário logado
+      usuario: userId, // Substitua pelo ID do usuário logado
       nome: pet.name,
       especie: pet.type.toLowerCase(), // Certifique-se de que este campo corresponda com o enum do backend
       raca: pet.race.toLowerCase(),
@@ -71,6 +75,10 @@ function RegisterPet() {
   
       if (response.ok) {
         console.log('Pet cadastrado com sucesso!', responseData);
+        if (location.state?.onPetAdded) {
+          location.state.onPetAdded();
+        }
+        navigate('/mypets');
         // Aqui você pode redirecionar o usuário ou atualizar a UI conforme necessário
       } else {
         // Se a resposta não for ok, mostre uma mensagem de erro
@@ -135,7 +143,6 @@ function RegisterPet() {
             required
           />
         </label>
-        <form onSubmit={handleSubmit} className="register-pet-form">
         <div className="register-pet-select-wrapper">
           <label className="register-pet-label">
             Tipo de Pet:
@@ -157,7 +164,6 @@ function RegisterPet() {
             </select>
           </label>
         </div>
-  </form>
         <button className="button add">
           Adicionar consulta
         </button>
