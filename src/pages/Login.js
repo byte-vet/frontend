@@ -14,12 +14,14 @@ function Login() {
       const response = await fetch('http://localhost:3000/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer bytevet'
         },
         body: JSON.stringify({ email, password })
       });
 
       const data = await response.json();
+      console.log(data)
 
       if (response.ok) {
         // Salva o token no localStorage ou no estado do aplicativo
@@ -42,7 +44,10 @@ function Login() {
           <img src={logo} alt="ByteVet" />
         </div>
         <h1 className="login-title">ByteVet</h1>
-        <form className="login-form" onSubmit={handleLogin}>
+        <form className="login-form" onSubmit={(e) => {
+        e.preventDefault(); // Prevent default form submission
+        handleLogin(email, password); // Call your login handler function
+        }}>
           <div className="input-wrapper">
             <input
               type="email"

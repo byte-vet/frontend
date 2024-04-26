@@ -19,6 +19,7 @@ function Home() {
   // substituir os console.logs por chamadas para o backend
   const handleMyPets = () => {
     console.log('Acessar Meus Pets');
+    navigate('/mypets');
   };
 
   const handleAppointments = () => {

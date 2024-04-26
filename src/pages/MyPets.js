@@ -16,7 +16,7 @@ function MyPets() {
   const handlePetClick = (petId) => {
     // integrar com o backend para levar para a tela do pet, individualmente
     console.log("Pet clicked:", petId);
-    // EX: navigate(`/pets/${petId}`);
+    navigate(`/mypet/${petId}`);
   };
 
   const handleAddPet = () => {
