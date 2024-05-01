@@ -1,54 +1,18 @@
-import React, { useState, useEffect } from 'react'; // Import useEffect here
+import React, { useState } from 'react';
 import './MyPet.css';
 import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
 
-// Pass token and petId as props if they're not supposed to be hard-coded
-function MyPet({ token, petId }) { // Assuming token and petId are props
+function MyPet() {
   const [pet, setPet] = useState({
     name: 'Café',
     age: 3,
     photo: profilePlaceholder,
     breed: 'Poodle',
     species: 'Cachorro',
-    weight: 3,
-    vaccineCardUrl: '', // You need to have a URL for downloading the vaccination card
+    weight: 3
   });
 
-  useEffect(() => {
-    const fetchPet = async () => {
-      try {
-        // Use the token from props
-        const response = await fetch(`http://localhost:3000/users/${token}/pets/${petId}`, {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}` // Use the token from props
-          }
-        });
-        
-        const data = await response.json();
-    
-        if (response.ok) {
-          setPet({
-            ...pet,
-            name: data.nome,
-            age: data.idade,
-            photo: data.foto || profilePlaceholder,
-            vaccineCard: data.cartaoVacina || [],
-            vaccineCardUrl: data.vaccineCardUrl, // Make sure this data is provided by your backend
-          });
-        } else {
-          console.error('Erro ao carregar informações do pet', data.message);
-        }
-      } catch (error) {
-        console.error('Falha na requisição', error);
-      }
-    };
-
-    fetchPet();
-  }, [petId, token]); // Use the variables from props as dependencies
-
-  
   return (
     <div className="pet-container">
       <img src={logo} alt="ByteVet Logo" className="mypet-logo" />
