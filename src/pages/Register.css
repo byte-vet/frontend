@@ -1,4 +1,3 @@
-/* register.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
@@ -6,7 +5,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +16,7 @@ body, html {
 }
 
 .register-container {
-  background-color: white;
+  background-color: rgba(11, 88, 88, 0.39); /* Cor cinza com opacidade de 30% */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 2rem;
@@ -26,44 +25,60 @@ body, html {
   text-align: center;
 }
 
+.bytevet-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  color: #ffff;
+  margin-top: 0px;
+}
+
 .register-title {
   font-family: 'Nunito Sans', sans-serif;
-  color: #333;
+  color: #ffff;
   margin-bottom: 2rem;
 }
 
 .register-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
+  color: #ffff;
 }
 
-.register-input {
+.input-field input {
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: 20px;
   border: 1px solid #ccc;
-  font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+
+.input-field label {
+  color: #ffff;
 }
 
 .register-button {
   font-family: 'Roboto', sans-serif;
-  background-color: #4caf50;
-  color: white;
-  padding: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #ffff;
+  padding: 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-top: 1rem;
+  width: 90%;
+  background-color: #f44336;
+  margin-top: 0.2rem;
+  margin-bottom: 0.9rem;
+  text-align: center;
 }
 
 .register-link {
-  color: #2A5A75;
-  margin-top: 1rem;
+  color: #ffff;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
+  font-weight: 550;
 }
 
 .terms {
@@ -82,4 +97,26 @@ body, html {
   user-select: none;
 }
 
-/* Outros ajustes de estilo podem ser adicionados conforme necessário */
+.label-white {
+  color: #ffff;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.label, .input-field label {
+  font-family: 'Roboto', sans-serif;
+  color: #ffff;
+  min-width: 150px;
+}
+
+.input-field {
+  margin-left: 10px;
+  flex: 1;
+  color: #ffff
+}

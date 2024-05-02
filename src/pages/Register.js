@@ -1,8 +1,7 @@
-// src/pages/Register.js
 import React, { useState } from 'react';
+import './Register.css';
+import logo from './assets/images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
-import InputField from '../components/InputField';
-import Button from '../components/Button';
 
 function Register() {
   const navigate = useNavigate();
@@ -13,8 +12,6 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
-    console.log(`Registrando com senha: ${password} e confirmação: ${confirmPassword}`);
 
     if (password !== confirmPassword) {
       alert("As senhas não coincidem.");
@@ -29,7 +26,7 @@ function Register() {
           'Authorization': `Bearer bytevet`
         },
         body: JSON.stringify({
-          fullName, // assumindo que o backend espera um campo 'fullName'
+          fullName,
           email,
           password
         }),
@@ -38,28 +35,40 @@ function Register() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log('Registro bem-sucedido', data);
         navigate('/login');
       } else {
         alert(`Erro no registro: ${data.message}`);
       }
     } catch (error) {
-      console.error('Erro ao fazer a requisição de registro', error);
       alert('Ocorreu um erro ao fazer a requisição de registro.');
     }
   };
 
   return (
-    <div>
-      <h2>Cadastre-se</h2>
-      <form onSubmit={handleRegister}>
-        <InputField label="Nome completo" type="text" name="fullName" value={fullName} onChange={e => setFullName(e.target.value)} />
-        <InputField label="Digite seu e-mail" type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} />
-        <InputField label="Digite sua senha" type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
-        <InputField label="Confirme a senha" type="password" name="confirmPassword" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
-        <Button type="submit">Criar conta</Button>
+    <div className="register-container">
+      <img src={logo} alt="ByteVet Logo" className="mypet-logo" />
+      <h1 className="bytevet-title">ByteVet</h1>
+      <h1 className="register-title">Cadastre-se</h1>
+      <form className="register-form" onSubmit={handleRegister}>
+        <div className="input-row">
+          <label htmlFor="fullName">Nome</label>
+          <input type="text" id="fullName" name="fullName" value={fullName} onChange={e => setFullName(e.target.value)} className="input-field" />
+        </div>
+        <div className="input-row">
+          <label htmlFor="email">Digite seu email</label>
+          <input type="email" id="email" name="email" value={email} onChange={e => setEmail(e.target.value)} className="input-field" />
+        </div>
+        <div className="input-row">
+          <label htmlFor="password">Digite sua senha</label>
+          <input type="password" id="password" name="password" value={password} onChange={e => setPassword(e.target.value)} className="input-field" />
+        </div>
+        <div className="input-row">
+          <label htmlFor="confirmPassword">Confirme a senha</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} className="input-field" />
+        </div>
+        <button type="submit" className="register-button">Criar conta</button>
       </form>
-      <Link to="/login">Já possui conta? Entrar.</Link>
+      <Link to="/login" className="register-link">Já possui conta? Entrar</Link>
     </div>
   );
 }
