@@ -46,11 +46,23 @@ body, html {
   color: #ffff;
 }
 
+.register-form input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #000000;
+}
+
 .input-field input {
-  padding: 1rem;
-  border-radius: 20px;
+  background-color: #FFFFFF;
+  color: #000000;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   border: 1px solid #ccc;
-  width: 100%;
+  font-family: 'Inter', sans-serif;
+  flex-grow: 1;
 }
 
 .input-field label {
