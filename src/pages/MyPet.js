@@ -30,6 +30,7 @@ function MyPet() {
       >
         Cartão de Vacinação
       </a>
+      <button className="button-appointments-card">Histórico de consultas</button>
     </div>
   );
 }
