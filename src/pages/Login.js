@@ -45,8 +45,8 @@ function Login() {
         </div>
         <h1 className="login-title">ByteVet</h1>
         <form className="login-form" onSubmit={(e) => {
-        e.preventDefault(); // Prevent default form submission
-        handleLogin(email, password); // Call your login handler function
+        e.preventDefault();
+        handleLogin(email, password);
         }}>
           <div className="input-wrapper">
             <input
