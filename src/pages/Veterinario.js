@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Veterinario.css'; // Assumindo que Veterinario.css importa ou contém os estilos de botão de Home.css
+import './Veterinario.css';
 import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
 
