@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import MyPets from './pages/MyPets';
 import RegisterPet from './pages/RegisterPet';
 import MyPet from './pages/MyPet';
+import Veterinario from './pages/Veterinario'
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<MyPet />} />
-        <Route path="/" element={<Register />} />
+        <Route path="/" element={<Veterinario />} />
         <Route path="/register-pet" element={<RegisterPet />} />
         <Route path="/home" element={<Home />} />
         <Route path="/mypets" element={<MyPets />} />
