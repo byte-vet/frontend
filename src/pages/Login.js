@@ -55,6 +55,7 @@ function Login() {
               className="input-field"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              style={{ color: '#000' }}
             />
           </div>
           <div className="input-wrapper">
@@ -64,6 +65,7 @@ function Login() {
               className="input-field"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              style={{ color: '#000' }}
             />
           </div>
           <button type="submit" className="login-button">Entrar</button>

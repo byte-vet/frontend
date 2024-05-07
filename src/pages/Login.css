@@ -58,7 +58,7 @@
   outline: none;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
-  color: #000000; /* Garante que a cor do texto seja preta */
+  color: #000000;
 }
 
 .login-button {
