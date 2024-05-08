@@ -38,6 +38,10 @@ function Home() {
     console.log('Acessar Meu Perfil');
   };
 
+  const handleVeterinario = () => {
+    navigate('/veterinario')
+  }
+
   return (
     <div className="home-container">
       <img src={logo} alt="ByteVet Logo" className="home-logo" />
@@ -58,6 +62,7 @@ function Home() {
         <button className="button vaccines" onClick={handleVaccines}>💉 Vacinas</button>
         <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
         <button className="button profile" onClick={handleProfile}>👤 Meu perfil</button>
+        <button className="button veterinario" onClick={handleVeterinario}>👤 Veterinario</button>
       </div>
     </div>
   );
