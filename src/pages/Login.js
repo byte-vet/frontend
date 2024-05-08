@@ -14,8 +14,7 @@ function Login() {
       const response = await fetch('http://localhost:3000/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer bytevet'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email, password })
       });
@@ -26,6 +25,7 @@ function Login() {
       if (response.ok) {
         // Salva o token no localStorage ou no estado do aplicativo
         localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.id);
         console.log('Login realizado com sucesso!');
         navigate('/home');
       } else {
