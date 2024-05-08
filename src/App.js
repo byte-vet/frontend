@@ -7,6 +7,8 @@ import MyPets from './pages/MyPets';
 import RegisterPet from './pages/RegisterPet';
 import MyPet from './pages/MyPet';
 import Veterinario from './pages/Veterinario'
+import Consulta from './pages/Consulta'
+import Consultas from './pages/Consultas'
 
 function App() {
 
@@ -23,6 +25,8 @@ function App() {
         <Route path="/add-pet" element={<RegisterPet/>}/>
         <Route path="/mypet" element={<MyPet/>}/>
         <Route path="/mypet/:petId" element={<MyPet token={userToken} />} />
+        <Route path="/consulta" element={<Consulta/>}/>
+        <Route path="/consultas" element={<Consultas />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>
