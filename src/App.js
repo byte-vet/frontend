@@ -7,6 +7,8 @@ import MyPets from './pages/MyPets';
 import RegisterPet from './pages/RegisterPet';
 import MyPet from './pages/MyPet';
 import Veterinario from './pages/Veterinario'
+import Consultas from './pages/Consultas'
+import Consulta from './pages/Consulta'
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/veterinario" element={<Veterinario />} />
+        <Route path="/consultas" element={<Consultas />} />
+        <Route path="/consulta" element={<Consulta />} />
         <Route path="/register-pet" element={<RegisterPet />} />
         <Route path="/home" element={<Home />} />
         <Route path="/mypets" element={<MyPets />} />
