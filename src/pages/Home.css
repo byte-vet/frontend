@@ -62,17 +62,9 @@
 }
 
 .button.appointments {
-  background-color: #f44336;
-}
-
-.button.vaccines {
   background-color: #2196f3;
 }
 
 .button.add-pet {
-  background-color: #BA68C8;
-}
-
-.button.profile {
-  background-color: #BA68C8;
+  background-color: #f44336;
 }

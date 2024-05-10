@@ -30,7 +30,6 @@ function Home() {
       <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
         <button className="button my-pets" onClick={handleMyPets}>🐾 Meus pets</button>
         <button className="button appointments" onClick={handleAppointments}>🩺 Consultas</button>
-        <button className="button vaccines" onClick={handleVaccines}>💉 Vacinas</button>
       </div>
     </div>
   );
