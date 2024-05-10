@@ -13,11 +13,7 @@ function Home() {
   const handleAppointments = () => {
     navigate('/consultas');
   };
-
-  const handleVaccines = () => {
-    console.log('Acessar Vacinas');
-  };
-
+  
   const handleAddPet = () => {
     navigate('/add-pet');
   };
