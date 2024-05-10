@@ -5,18 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
   let navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSearch = () => {
-    console.log('Função de busca acionada com:', searchTerm);
-    // incluir chamada para o backend
-  };
-
-  // substituir os console.logs por chamadas para o backend
   const handleMyPets = () => {
     navigate('/mypets');
   };
@@ -33,25 +22,15 @@ function Home() {
     navigate('/add-pet');
   };
 
-  const handleProfile = () => {
-    console.log('Acessar Meu Perfil');
-  };
-
-  const handleVeterinario = () => {
-    navigate('/veterinario')
-  }
-
   return (
     <div className="home-container">
       <img src={logo} alt="ByteVet Logo" className="home-logo" />
       <h1 className="home-title">ByteVet</h1>
       <div className="main-buttons">
+      <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
         <button className="button my-pets" onClick={handleMyPets}>🐾 Meus pets</button>
         <button className="button appointments" onClick={handleAppointments}>🩺 Consultas</button>
         <button className="button vaccines" onClick={handleVaccines}>💉 Vacinas</button>
-        <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
-        <button className="button profile" onClick={handleProfile}>👤 Meu perfil</button>
-        <button className="button veterinario" onClick={handleVeterinario}>👤 Veterinario</button>
       </div>
     </div>
   );
