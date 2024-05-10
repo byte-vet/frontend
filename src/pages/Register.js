@@ -19,7 +19,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/auth/signup', {
+      const response = await fetch('https://backend-ks2k.onrender.com/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

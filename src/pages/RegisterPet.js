@@ -44,9 +44,9 @@ function RegisterPet() {
       alert('Você precisa estar logado para cadastrar um pet.');
       return;
     }
-    // Substitua 'http://localhost:3000/animais' pelo endpoint correto se necessário.
+
     // Certifique-se de que você tem um token válido se a autenticação for necessária.
-    const endpoint = `http://localhost:3000/users/${userId}/pets`;
+    const endpoint = `https://backend-ks2k.onrender.com/users/${userId}/pets`;
   
     // Construa o objeto com os dados do pet
     const petData = {
