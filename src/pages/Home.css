@@ -57,6 +57,10 @@
   width: 100%;
 }
 
+.main-buttons .button.add-pet {
+  background-color: #f44336;
+}
+
 .button.my-pets {
   background-color: #4caf50;
 }
@@ -65,6 +69,4 @@
   background-color: #2196f3;
 }
 
-.button.add-pet {
-  background-color: #f44336;
-}
+

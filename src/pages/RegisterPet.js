@@ -72,6 +72,7 @@ function RegisterPet() {
   return (
     <div className="register-pet-container">
       <img src={logo} alt="ByteVet Logo" className="register-pet-logo" />
+      <h1 className="bytevet-title">ByteVet</h1>
       <h1 className="register-pet-title">Cadastrar Pet</h1>
       <form onSubmit={handleSubmit} className="register-pet-form">
         <label className="register-pet-label">
