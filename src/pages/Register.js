@@ -19,7 +19,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch('https://backend-ks2k.onrender.com/auth/signup', {
+      const response = await fetch('https://backend-ks2k.onrender.com/auth/signup', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,14 +28,16 @@ function Register() {
         body: JSON.stringify({
           fullName,
           email,
-          password
+          password,
+          confirmPassword
         }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        navigate('/login');
+        alert('Registro realizado com sucesso! Faça login para acessar a plataforma.');
+        navigate('/');
       } else {
         alert(`Erro no registro: ${data.message}`);
       }
@@ -68,7 +70,7 @@ function Register() {
         </div>
         <button type="submit" className="register-button">Criar conta</button>
       </form>
-      <Link to="/login" className="register-link">Já possui conta? Entrar</Link>
+      <Link to="/" className="register-link">Já possui conta? Entrar</Link>
     </div>
   );
 }
