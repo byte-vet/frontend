@@ -13,7 +13,7 @@ function RegisterPet() {
     race: '',
   });
 
-  const [showDropdown, setShowDropdown] = useState(false); // State for dropdown visibility
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

@@ -80,7 +80,6 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +91,6 @@
 }
 
 .button.add {
-  margin-top: 2px;
   background-color: #f0ad4e;
   align-self: center;
 }
@@ -102,9 +100,9 @@
     color: white;
     margin-bottom: 5px;
   }
-  
-.register-pet-input {
-  width: 300px;
+
+.register-pet-input, .button {
+  width: 320px; 
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
