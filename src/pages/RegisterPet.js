@@ -73,7 +73,7 @@ function RegisterPet() {
   
       if (response.ok) {
         console.log('Pet cadastrado com sucesso!', responseData);
-        navigate('/home');
+        navigate('/mypets');
         // Aqui você pode redirecionar o usuário ou atualizar a UI conforme necessário
       } else {
         // Se a resposta não for ok, mostre uma mensagem de erro
