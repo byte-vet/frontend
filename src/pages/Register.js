@@ -15,11 +15,12 @@ function Register() {
 
     if (password !== confirmPassword) {
       alert("As senhas não coincidem.");
+      console.log(password, confirmPassword)
       return;
     }
 
     try {
-      const response = await fetch('https://backend-ks2k.onrender.com/auth/signup', {
+      const response = await fetch('https://backend-ks2k.onrender.com/auth/signup', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,14 +29,16 @@ function Register() {
         body: JSON.stringify({
           fullName,
           email,
-          password
+          password,
+          confirmPassword
         }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        navigate('/login');
+        alert('Registro realizado com sucesso! Faça login para acessar a plataforma.');
+        navigate('/');
       } else {
         alert(`Erro no registro: ${data.message}`);
       }
