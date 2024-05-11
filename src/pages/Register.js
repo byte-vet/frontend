@@ -15,7 +15,6 @@ function Register() {
 
     if (password !== confirmPassword) {
       alert("As senhas não coincidem.");
-      console.log(password, confirmPassword)
       return;
     }
 
@@ -71,7 +70,7 @@ function Register() {
         </div>
         <button type="submit" className="register-button">Criar conta</button>
       </form>
-      <Link to="/login" className="register-link">Já possui conta? Entrar</Link>
+      <Link to="/" className="register-link">Já possui conta? Entrar</Link>
     </div>
   );
 }
