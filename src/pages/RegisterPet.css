@@ -91,7 +91,7 @@
 }
 
 .button.add {
-  background-color: #f0ad4e;
+  background-color: #2196f3;
   align-self: center;
 }
 
@@ -101,7 +101,7 @@
     margin-bottom: 5px;
   }
 
-.register-pet-input, .button {
+.register-pet-input {
   width: 320px; 
   padding: 10px;
   margin-bottom: 15px;
@@ -109,3 +109,14 @@
   border: 1px solid #ccc;
   font-family: 'Inter', sans-serif;
   }
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
