@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './MyPets.css';
-import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/HeaderComponent/Header';

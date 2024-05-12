@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MyPet.css';
-import logo from './assets/images/logo.png';
+import Header from '../components/HeaderComponent/Header';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -46,19 +46,20 @@ function MyPet() {
   };
 
   return (
-    <div className="pet-container">
-      <img src={logo} alt="ByteVet Logo" className="mypet-logo" />
-      <h1 className="mypet-title">ByteVet</h1>
-      <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo-my-pet" />
-      <h1 className="pet-name-my-pet">{pet.nome}</h1>
-      <p className="pet-age">Idade: {pet.idade} anos</p>
-      <p className="pet-info">Peso: {pet.peso}kg</p>
-      <p className="pet-info">Raça: {pet.raca}</p>
-      <p className="pet-info">Espécie: {pet.especie}</p>
-      <a className="button-vaccination-card">Cartão de Vacinação</a>
-      <button className="button-appointments-card" onClick={handleConsultas}>Histórico de consultas</button>
+    <div className="body-my-pet">
+      <Header />
+      <div className="pet-container">
+        <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo-my-pet" />
+        <h1 className="pet-name-my-pet">{pet.nome}</h1>
+        <p className="pet-age">Idade: {pet.idade} anos</p>
+        <p className="pet-info">Peso: {pet.peso}kg</p>
+        <p className="pet-info">Raça: {pet.raca}</p>
+        <p className="pet-info">Espécie: {pet.especie}</p>
+        <a className="button-vaccination-card">Cartão de Vacinação</a>
+        <button className="button-appointments-card" onClick={handleConsultas}>Histórico de consultas</button>
+      </div>
     </div>
   );
-  
+
 }
 export default MyPet;

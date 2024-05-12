@@ -40,19 +40,20 @@ body, html {
   display: flex;
   width: 100%;
   padding: 0 20px; /* Adiciona padding horizontal para manter espaço nas laterais */
+  margin-top: 200px;
 }
 
 .pet-name-my-pet {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 2.5rem !important;
-  color: #ffffff;
+  color: #036353;
   margin: 1rem 0;
 }
 
 .pet-age {
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #495856;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
@@ -60,7 +61,7 @@ body, html {
 .pet-info {
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #495856;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
