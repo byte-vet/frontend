@@ -3,6 +3,7 @@ import './MyPets.css';
 import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/HeaderComponent/Header';
 
 function MyPets() {
   const navigate = useNavigate();
@@ -86,12 +87,7 @@ function MyPets() {
 
   return (
     <div className="mypets-container">
-      <img src={logo} alt="ByteVet Logo" className="mypets-logo" />
-      <h1 className="mypets-title">ByteVet</h1>
-      <div className="search-bar">
-        <input type="text" placeholder="Buscar..." className="input-field" onChange={handleSearchChange} />
-        <button className="search-button" onClick={handleSearch}>🔍</button>
-      </div>
+      <Header />
       <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
       <h1 className="mypets-header">Meus pets</h1>
       <div className="pets-list">

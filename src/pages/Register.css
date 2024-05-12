@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
-body, html {
-  height: 100%;
+.body-register {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   display: flex;
@@ -12,29 +13,30 @@ body, html {
   background-color: #0B5858;
   background-image: url('./assets/images/bg-icons.png');
   background-size: contain;
-  background-repeat: repeat;
 }
 
 .register-container {
-  background-color: rgba(11, 88, 88, 0.39); /* Cor cinza com opacidade de 30% */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 320px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 .bytevet-title {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 800;
-  color: #ffff;
-  margin-top: 0px;
+  font-size: 1.2rem;
+  color: #3b4a8a;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .register-title {
   font-family: 'Nunito Sans', sans-serif;
-  color: #ffff;
+  color: #102274;
   margin-bottom: 2rem;
 }
 
@@ -43,15 +45,15 @@ body, html {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  color: #ffff;
+  color: #b81717;
 }
 
 .register-form input {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  color: #000000;
+  background-color: #FFFFFF;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
 }
 
 .input-field input {
@@ -66,7 +68,7 @@ body, html {
 }
 
 .input-field label {
-  color: #ffff;
+  color: #a8a8a8;
 }
 
 .register-button {
@@ -115,6 +117,7 @@ body, html {
 
 .input-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
@@ -130,5 +133,5 @@ body, html {
 .input-field {
   margin-left: 10px;
   flex: 1;
-  color: #ffff
+  color: #440101
 }

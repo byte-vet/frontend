@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Home.css';
-import logo from './assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/HeaderComponent/Header';
 
 function Home() {
   let navigate = useNavigate();
@@ -19,15 +19,15 @@ function Home() {
   };
 
   return (
-    <div className="bg">
+    <div className="body-home">
     <div className="home-container">
-      <img src={logo} alt="ByteVet Logo" className="home-logo" />
-      <h1 className="home-title">ByteVet</h1>
-      <div className="main-buttons">
-      <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
-        <button className="button my-pets" onClick={handleMyPets}>🐾 Meus pets</button>
+      <Header />
+      <div className="main-buttons">    
+
+        <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
+        </div> 
+          <button className="button my-pets" onClick={handleMyPets}>🐾 Meus pets</button>
         <button className="button appointments" onClick={handleAppointments}>🩺 Consultas</button>
-      </div>
     </div>
     </div>
   );

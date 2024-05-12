@@ -2,21 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
+
 .mypets-container {
-  font-family: 'Inter', sans-serif;
-  background-color: #0B5858;
-  background-image: url('./assets/images/bg-icons.png');
-  background-size: contain;
-  background-repeat: repeat;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  overflow-y: auto;
-  max-width: 600px;
-  min-height: 100vh;
+  flex-direction: column;
+  overflow-y: hidden;
   margin: auto;
-  padding: 10px;
-  padding-top: 10px;
 }
 
 .pet-card {
@@ -30,18 +27,7 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.1)
 }
 
-.mypets-header {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 36px;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 12px;
-}
 
-.mypets-logo {
-  margin-top: 1rem;
-  width: 30%;
-}
 
 .delete-button {
   background-color: #ff6347; /* Vermelho para ação de deletar */
@@ -53,12 +39,6 @@
   cursor: pointer;
 }
 
-.mypets-title {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 800;
-  color: #ffffff;
-  margin-top: 20px;
-}
 
 .search-bar {
   display: flex;
