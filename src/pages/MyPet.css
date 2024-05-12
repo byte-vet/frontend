@@ -42,7 +42,7 @@ body, html {
   padding: 0 20px; /* Adiciona padding horizontal para manter espaço nas laterais */
 }
 
-.pet-name {
+.pet-name-my-pet {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 2.5rem !important;
   color: #ffffff;
@@ -65,7 +65,7 @@ body, html {
   margin-bottom: 0.5rem;
 }
 
-.pet-photo {
+.pet-photo-my-pet {
   width: 160px !important;
   height: 160px !important;
   border-radius: 50% !important;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importando useNavigate
 import './Consultas.css';
 import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
@@ -8,6 +9,7 @@ function Consultas() {
     { id: 1, date: '2023-05-07', petName: 'Café', petPhoto: '' },
     { id: 2, date: '2023-05-08', petName: 'Ranziza', petPhoto: '' },
   ]);
+  const navigate = useNavigate(); // Hook para navegação
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -17,6 +19,10 @@ function Consultas() {
   const handleAddConsulta = () => {
     // Ação para adicionar consulta
     console.log("Adicionar nova consulta");  // Placeholder para ação futura
+  };
+
+  const redirectToConsulta = () => {
+    navigate('/consulta'); // Redirecionamento para a rota /consulta
   };
 
   return (
@@ -30,9 +36,9 @@ function Consultas() {
         ➕ Adicionar Consulta
       </button>
       {consultas.map(consulta => (
-        <button key={consulta.id} className="consulta-button">
+        <button key={consulta.id} className="consulta-button" onClick={() => redirectToConsulta()}>
           {formatDate(consulta.date)} - {consulta.petName}
-          <img src={consulta.petPhoto || profilePlaceholder} alt={consulta.petName} className="pet-photo" />
+          <img src={consulta.petPhoto || profilePlaceholder} alt={consulta.petName} className="pet-photo-consultas" />
         </button>
       ))}
     </div>

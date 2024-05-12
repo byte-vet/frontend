@@ -82,8 +82,8 @@ function MyPets() {
       <div className="pets-list">
         {pets.map((pet) => (
           <div key={pet._id} className="pet-card" onClick={() => handlePetClick(pet._id)}>
-            <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo" />
-            <div className="pet-name">{pet.nome}</div>
+            <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo-my-pets" />
+            <div className="pet-name-my-pets">{pet.nome}</div>
             <button className="delete-button" onClick={(e) => {
               e.stopPropagation();
               deletePet(pet._id);

@@ -12,6 +12,7 @@ import RegisterVet from './pages/RegisterVet';
 import LoginVet from './pages/LoginVet';
 import HomeVet from './pages/HomeVet';
 import RegisterConsulta from './pages/RegisterConsulta';
+import Veterinarios from './pages/Veterinarios';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/register-vet" element={<RegisterVet />} />
         <Route path="/login-vet" element={<LoginVet />} />
         <Route path="/register-consulta" element={<RegisterConsulta />} />
+        <Route path="/veterinarios" element={<Veterinarios />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>

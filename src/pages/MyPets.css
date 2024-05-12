@@ -88,9 +88,10 @@
   display: block;
 }
 
-.pet-name {
+.pet-name-my-pets {
   flex-grow: 1;
-  font-size: 1.2em !important;
+  font-size: 1.2em;
+  font-weight: bold;
   color: #ffffff;
   margin-right: 10px;
   overflow: hidden;
@@ -98,10 +99,11 @@
   white-space: nowrap;
 }
 
-.pet-photo {
-  width: 40px !important;
-  height: 40px!important;
-  border-radius: 20px!important;
-  margin-right: 10px!important;
-  align-self: center!important;
+.pet-photo-my-pets {
+  width: 40px ;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-right: 10px;
+  align-self: center;
 }

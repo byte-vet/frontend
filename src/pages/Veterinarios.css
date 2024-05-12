@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+.vet-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #098b3f;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 320px;
+    cursor: default;
+  }
+  
+  .vet-name {
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .clinic-name {
+    font-size: 0.9em;
+    color: #ffffff;
+    font-weight: normal;
+  }
+  
