@@ -3,7 +3,7 @@ import './Login.css';
 import logo from './assets/images/logo.png'; // Importação correta do logo
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function LoginVet() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Login() {
     // Função para lidar com o login
   const handleLogin = async (email, password) => {
     try {
-      const response = await fetch('https://backend-ks2k.onrender.com/auth/login', {
+      const response = await fetch('https://backend-ks2k.onrender.com/auth/vet/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -24,10 +24,14 @@ function Login() {
 
       if (response.ok) {
         // Salva o token no localStorage ou no estado do aplicativo
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('userId', data.id);
-        console.log('Login realizado com sucesso!');
-        navigate('/home');
+        localStorage.setItem('tokenVet', data.token);  // Certifique-se que o token está sendo enviado na resposta
+        if (data.id) {
+            localStorage.setItem('vetId', data.id);
+            console.log('Login realizado com sucesso!');
+            navigate('/home-vet');
+        } else {
+            console.error('ID do veterinário não foi recebido');
+        }
       } else {
         console.error('Erro no login:', data.message);
       }
@@ -44,7 +48,7 @@ function Login() {
           <img src={logo} alt="ByteVet" />
         </div>
         <h1 className="login-title">ByteVet</h1>
-        <h1 className="login-title">Paciente</h1>
+        <h1 className="login-title">Veterinario</h1>
         <form className="login-form" onSubmit={(e) => {
         e.preventDefault();
         handleLogin(email, password);
@@ -72,8 +76,8 @@ function Login() {
           <button type="submit" className="login-button">Entrar</button>
           <div className="login-links">
             <a href="/forgot-password" className="login-link">Esqueci minha senha</a>
-            <a href="/register" className="login-link">Não possui conta? Registre-se</a>
-            <a href="/login-vet" className="login-link">Sou veterinario!</a>
+            <a href="/register-vet" className="login-link">Não possui conta? Registre-se</a>
+            <a href="/" className="login-link">Sou paciente!</a>
           </div>
         </form>
       </div>
@@ -81,4 +85,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginVet;

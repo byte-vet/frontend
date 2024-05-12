@@ -6,9 +6,11 @@ import Home from './pages/Home';
 import MyPets from './pages/MyPets';
 import RegisterPet from './pages/RegisterPet';
 import MyPet from './pages/MyPet';
-import Veterinario from './pages/Veterinario'
 import Consulta from './pages/Consulta'
 import Consultas from './pages/Consultas'
+import RegisterVet from './pages/RegisterVet';
+import LoginVet from './pages/LoginVet';
+import HomeVet from './pages/HomeVet';
 
 function App() {
 
@@ -19,14 +21,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/veterinario" element={<Veterinario />} />
         <Route path="/register-pet" element={<RegisterPet />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/home-vet" element={<HomeVet />} />
         <Route path="/mypets" element={<MyPets />} />
         <Route path="/add-pet" element={<RegisterPet/>}/>
         <Route path="/mypet/:petId" element={<MyPet token={userToken} />} />
         <Route path="/consulta" element={<Consulta/>}/>
         <Route path="/consultas" element={<Consultas />} />
+        <Route path="/register-vet" element={<RegisterVet />} />
+        <Route path="/login-vet" element={<LoginVet />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './MyPet.css';
 import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function MyPet() {
   const { petId } = useParams();  // Assumindo que a rota é algo como '/mypet/:petId'
   const [pet, setPet] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -40,6 +41,10 @@ function MyPet() {
     return <div>Carregando...</div>;
   }
 
+  const handleConsultas = () => {
+    navigate('/consultas');
+  };
+
   return (
     <div className="pet-container">
       <img src={logo} alt="ByteVet Logo" className="mypet-logo" />
@@ -51,7 +56,7 @@ function MyPet() {
       <p className="pet-info">Raça: {pet.raca}</p>
       <p className="pet-info">Espécie: {pet.especie}</p>
       <a className="button-vaccination-card">Cartão de Vacinação</a>
-      <button className="button-appointments-card">Histórico de consultas</button>
+      <button className="button-appointments-card" onClick={handleConsultas}>Histórico de consultas</button>
     </div>
   );
   
