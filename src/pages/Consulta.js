@@ -1,7 +1,8 @@
 import React from 'react';
 import './Consulta.css';
-import logo from './assets/images/logo.png';
+import Header from '../components/HeaderComponent/Header';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
+
 function Consulta() {
   const consulta = {
     date: '2023-05-07',
@@ -19,10 +20,7 @@ function Consulta() {
 
   return (
     <div className="consulta-container">
-      <div className="bytevet-logo">
-        <img src={logo} alt="ByteVet Logo" />
-        <h1 className="bytevet-logo-title">ByteVet</h1>
-      </div>
+      <Header />
       <h1 className="consulta-title">Consulta</h1>
       <div className="consulta-details">
         <img src={consulta.petPhoto} alt={consulta.petName} className="detail-photo" />
