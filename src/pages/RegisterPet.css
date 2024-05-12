@@ -2,16 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
-.register-pet-container {
+.body-pet {
   font-family: 'Inter', sans-serif;
-  background-color: #0B5858;
-  background-image: url('./assets/images/bg-icons.png');
-  background-size: contain;
-  background-repeat: repeat;
+  /* background-color: #f5f5f5; */
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
+
+}
+
+.register-pet-container {
+  max-width: 400px;
+  margin-top: 130px;
+
 }
 
 .register-pet-select-wrapper {
@@ -26,14 +31,14 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   font-family: 'Inter', sans-serif;
-  background-color: #FFFFFF;
+  background-color: #000000;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
 }
 
-.register-pet-select-wrapper::after {
+/* .register-pet-select-wrapper::after {
   content: '▼';
   font-size: 12px;
   color: #333;
@@ -42,26 +47,8 @@
   top: 50%;
   pointer-events: none;
   transform: translateY(-50%);
-}
+} */
 
-.register-pet-header {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 36px;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 12px;
-}
-
-.register-pet-logo {
-  margin-top: 2rem;
-}
-
-.register-pet-title {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 800;
-  color: #ffffff;
-  margin-top: 2px;
-}
 
 .register-pet-form {
   width: 100%;
@@ -74,7 +61,7 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: white;
-  background-color: #4caf50;
+  background-color: #2a5e5e;
   padding: 15px 20px;
   margin-bottom: 10px;
   border: none;
@@ -86,8 +73,13 @@
   justify-content: center;
 }
 
+.register-pet-buttons {
+  margin-top: 30px;
+
+}
+
 .button.register {
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 15px;
 }
 
@@ -99,7 +91,7 @@
 
 .register-pet-label {
     display: block;
-    color: white;
+    color: rgb(59, 55, 55);
     margin-bottom: 5px;
   }
   
@@ -111,3 +103,8 @@
   border: 1px solid #ccc;
   font-family: 'Inter', sans-serif;
   }
+
+.type-options {
+  margin-top: -5px;;
+  font-size: 12px;
+}
