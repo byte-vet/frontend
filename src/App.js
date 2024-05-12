@@ -11,6 +11,7 @@ import Consultas from './pages/Consultas'
 import RegisterVet from './pages/RegisterVet';
 import LoginVet from './pages/LoginVet';
 import HomeVet from './pages/HomeVet';
+import RegisterConsulta from './pages/RegisterConsulta';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/consultas" element={<Consultas />} />
         <Route path="/register-vet" element={<RegisterVet />} />
         <Route path="/login-vet" element={<LoginVet />} />
+        <Route path="/register-consulta" element={<RegisterConsulta />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>
