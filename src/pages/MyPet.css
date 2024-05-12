@@ -3,14 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
 * {
-  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total definida */
+  box-sizing: border-box;
 }
 
 body, html {
   margin: 0;
   padding: 0;
-  width: 100%; /* Assegura que o body não ultrapasse a largura da viewport */
-  overflow-x: hidden; /* Esconde qualquer overflow horizontal */
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .mypet-header {

@@ -14,6 +14,11 @@ function Consultas() {
     return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
   };
 
+  const handleAddConsulta = () => {
+    // Ação para adicionar consulta
+    console.log("Adicionar nova consulta");  // Placeholder para ação futura
+  };
+
   return (
     <div className="consultas-container">
       <div className="bytevet-logo">
@@ -21,6 +26,9 @@ function Consultas() {
         <h1 className="bytevet-logo-title">ByteVet</h1>
       </div>
       <h1 className="consultas-title">Consultas</h1>
+      <button className="add-consulta-button" onClick={handleAddConsulta}>
+        ➕ Adicionar Consulta
+      </button>
       {consultas.map(consulta => (
         <button key={consulta.id} className="consulta-button">
           {formatDate(consulta.date)} - {consulta.petName}

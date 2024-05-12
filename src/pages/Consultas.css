@@ -59,3 +59,21 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.add-consulta-button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: white;
+  background-color: #4caf50;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
