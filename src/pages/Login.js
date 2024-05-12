@@ -44,7 +44,7 @@ function Login() {
           <img src={logo} alt="ByteVet" />
         </div>
         <h1 className="login-title">ByteVet</h1>
-        <h1 className="login-title">Paciente</h1>
+        <h1 className="login-title">Usuário</h1>
         <form className="login-form" onSubmit={(e) => {
         e.preventDefault();
         handleLogin(email, password);
