@@ -3,6 +3,7 @@ import './Register.css';
 import logo from './assets/images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 function RegisterVet() {
   const navigate = useNavigate();
   const [fullName, setFullName] = useState('');
@@ -49,6 +50,7 @@ function RegisterVet() {
   };
 
   return (
+    <div className="body-register">
     <div className="register-container">
       <img src={logo} alt="ByteVet Logo" className="mypet-logo" />
       <h1 className="bytevet-title">ByteVet</h1>
@@ -56,28 +58,29 @@ function RegisterVet() {
       <h1 className="register-title">Cadastre-se</h1>
       <form className="register-form" onSubmit={handleRegister}>
         <div className="input-row">
-          <label htmlFor="fullName">Nome</label>
-          <input type="text" id="fullName" name="fullName" value={fullName} onChange={e => setFullName(e.target.value)} className="input-field" />
+          {/* <label htmlFor="fullName">Nome</label> */}
+          <input type="text" id="fullName" name="fullName" value={fullName} onChange={e => setFullName(e.target.value)}  placeholder="Digite seu nome completo" className="input-field" />
         </div>
         <div className="input-row">
-          <label htmlFor="email">Digite seu email</label>
-          <input type="email" id="email" name="email" value={email} onChange={e => setEmail(e.target.value)} className="input-field" />
+          {/* <label htmlFor="email">Digite seu email</label> */}
+          <input type="email" id="email" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite seu email" className="input-field" />
         </div>
         <div className="input-row">
-          <label htmlFor="password">Digite sua senha</label>
-          <input type="password" id="password" name="password" value={password} onChange={e => setPassword(e.target.value)} className="input-field" />
+          {/* <label htmlFor="password">Digite sua senha</label> */}
+          <input type="password" id="password" name="password" value={password}  placeholder="Digite sua senha" onChange={e => setPassword(e.target.value)} className="input-field" />
         </div>
         <div className="input-row">
-          <label htmlFor="confirmPassword">Confirme a senha</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} className="input-field" />
+          {/* <label htmlFor="confirmPassword">Confirme a senha</label> */}
+          <input type="password" id="confirmPassword" name="confirmPassword" value={confirmPassword}  placeholder="Confirme sua senha" onChange={e => setConfirmPassword(e.target.value)} className="input-field" />
         </div>
         <div className="input-row">
-          <label htmlFor="nomeClinica">Digite o nome da clinica</label>
-          <input type="text" id="nomeClinica" name="nomeClinica" value={nomeClinica} onChange={e => setNomeClinica(e.target.value)} className="input-field" />
+          {/* <label htmlFor="nomeClinica">Digite o nome da clinica</label> */}
+          <input type="text" id="nomeClinica" name="nomeClinica" value={nomeClinica} onChange={e => setNomeClinica(e.target.value)}  placeholder="Digite o nome da sua clínica" className="input-field" />
         </div>
         <button type="submit" className="register-button">Criar conta</button>
       </form>
-      <Link to="/" className="register-link">Já possui conta? Entrar</Link>
+      <Link to="/login-vet" className="login-link">Já possui conta? Entrar</Link>
+    </div>
     </div>
   );
 }

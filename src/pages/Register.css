@@ -12,12 +12,12 @@
   align-items: center;
   background-color: #0B5858;
   background-image: url('./assets/images/bg-icons.png');
-  background-size: contain;
+  background-size: repeat;
 }
 
 .register-container {
   width: 100%;
-  max-width: 320px;
+  max-width: 350px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
