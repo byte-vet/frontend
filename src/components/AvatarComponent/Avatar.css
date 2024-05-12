@@ -5,8 +5,12 @@
 
 }
 .avatar-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-left: auto;
     margin-right: 30px;
     margin-top: 30px;
     cursor: pointer;
+    color: #e9e9e9;
 }

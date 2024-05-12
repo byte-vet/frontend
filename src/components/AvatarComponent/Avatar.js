@@ -8,6 +8,7 @@ function Avatar() {
             <Link to="/perfil">
             <img src={avatar} alt="Foto de perfil" className="avatar"/>
             </Link>
+            Perfil
         </div>
     );
 }

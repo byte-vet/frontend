@@ -54,13 +54,6 @@
   margin-bottom: 12px;
 }
 
-.bytevet-title {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 800;
-  color: #ffffff;
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
 
 .register-pet-logo {
   margin-top: 2rem;
@@ -97,17 +90,20 @@
 
 .register-pet-buttons {
   margin-top: 30px;
-
+  display: flex;
+  flex-direction: column;
 }
 
 .button.register {
-  margin-top: 40px;
+  margin-top: 25px;
   margin-bottom: 15px;
 }
 
 .button.add {
   background-color: #f39f21;
   align-self: center;
+  font-size: 1rem;
+  width: 70%;
 }
 
 .register-pet-label {
