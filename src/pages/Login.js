@@ -71,7 +71,7 @@ function Login() {
           </div>
           <button type="submit" className="login-button">Entrar</button>
           <div className="login-links">
-            <a href="/forgot-password" className="login-link">Esqueci minha senha</a>
+            <a href="/forgot-password" className="forgotpw-link">Esqueci minha senha</a>
             <a href="/register" className="login-link">Não possui conta? Registre-se</a>
             <a href="/login-vet" className="login-link">Sou veterinario!</a>
           </div>

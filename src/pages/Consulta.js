@@ -2,7 +2,6 @@ import React from 'react';
 import './Consulta.css';
 import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
-
 function Consulta() {
   const consulta = {
     date: '2023-05-07',

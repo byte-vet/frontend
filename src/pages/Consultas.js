@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Importando useNavigate
 import './Consultas.css';
 import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
+import Header from '../components/HeaderComponent/Header';
 
 function Consultas() {
   const [consultas, setConsultas] = useState([
@@ -26,11 +27,9 @@ function Consultas() {
   };
 
   return (
+    <div>
+    <Header />
     <div className="consultas-container">
-      <div className="bytevet-logo">
-        <img src={logo} alt="ByteVet Logo" />
-        <h1 className="bytevet-logo-title">ByteVet</h1>
-      </div>
       <h1 className="consultas-title">Consultas</h1>
       <button className="add-consulta-button" onClick={handleAddConsulta}>
         ➕ Adicionar Consulta
@@ -41,6 +40,7 @@ function Consultas() {
           <img src={consulta.petPhoto || profilePlaceholder} alt={consulta.petName} className="pet-photo-consultas" />
         </button>
       ))}
+    </div>
     </div>
   );
 }

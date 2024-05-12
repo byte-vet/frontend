@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&wght@700&wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+.header {
+    background-color: #0B5858;
+    height: 116px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0rem;
+    top: 0;
+    width: 100vw;
+    position: fixed;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-logo {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 40px;
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 30px;
+
+}
+
+.header-title {
+    color: #FBFBFB;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 10px;
+    margin-top: 60px;
+
+}

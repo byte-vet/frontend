@@ -1,0 +1,12 @@
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+}
+.avatar-link {
+    margin-left: auto;
+    margin-right: 30px;
+    margin-top: 30px;
+    cursor: pointer;
+}

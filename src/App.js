@@ -8,11 +8,14 @@ import RegisterPet from './pages/RegisterPet';
 import MyPet from './pages/MyPet';
 import Consulta from './pages/Consulta'
 import Consultas from './pages/Consultas'
+
+import Profile from './pages/Profile';
 import RegisterVet from './pages/RegisterVet';
 import LoginVet from './pages/LoginVet';
 import HomeVet from './pages/HomeVet';
 import RegisterConsulta from './pages/RegisterConsulta';
 import Veterinarios from './pages/Veterinarios';
+
 
 function App() {
 
@@ -31,10 +34,14 @@ function App() {
         <Route path="/mypet/:petId" element={<MyPet token={userToken} />} />
         <Route path="/consulta" element={<Consulta/>}/>
         <Route path="/consultas" element={<Consultas />} />
+
+        <Route path="/perfil" element={<Profile />} />
+
         <Route path="/register-vet" element={<RegisterVet />} />
         <Route path="/login-vet" element={<LoginVet />} />
         <Route path="/register-consulta" element={<RegisterConsulta />} />
         <Route path="/veterinarios" element={<Veterinarios />} />
+
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>
