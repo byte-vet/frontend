@@ -14,26 +14,14 @@ function RegisterPet() {
     race: '',
   });
 
-  const [showDropdown, setShowDropdown] = useState(false); // State for dropdown visibility
-
   const handleChange = (event) => {
     const { name, value } = event.target;
+    if ((name === 'age' || name === 'weight') && (value < 0 || isNaN(Number(value)))) {
+    }
     setPet(prevPet => ({
       ...prevPet,
       [name]: value
     }));
-  };
-
-  const handlePetTypeClick = (type) => {
-    setPet(prevPet => ({
-      ...prevPet,
-      type,
-    }));
-    setShowDropdown(false); // Hide dropdown on selection
-  };
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown); // Toggle dropdown visibility
   };
 
   const handleSubmit = async (event) => {
@@ -46,12 +34,10 @@ function RegisterPet() {
       return;
     }
 
-    // Certifique-se de que você tem um token válido se a autenticação for necessária.
     const endpoint = `https://backend-ks2k.onrender.com/users/${userId}/pets`;
 
-    // Construa o objeto com os dados do pet
     const petData = {
-      usuario: userId, // Substitua pelo ID do usuário logado
+      usuario: userId,
       nome: pet.name,
       especie: pet.type.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''), // Certifique-se de que este campo corresponda com o enum do backend
       raca: pet.race.toLowerCase(),
@@ -60,35 +46,29 @@ function RegisterPet() {
     };
 
     try {
-      // Faça a requisição para o backend
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify(petData) // Transforme o objeto petData em uma string JSON
+        body: JSON.stringify(petData)
       });
 
       const responseData = await response.json(); // Obtenha a resposta JSON do servidor
-
       if (response.ok) {
         console.log('Pet cadastrado com sucesso!', responseData);
         navigate('/mypets');
-        // Aqui você pode redirecionar o usuário ou atualizar a UI conforme necessário
       } else {
-        // Se a resposta não for ok, mostre uma mensagem de erro
         console.error('Erro ao cadastrar pet:', responseData.message);
         alert(`Erro ao cadastrar pet: ${responseData.message}`);
       }
     } catch (error) {
-      // Se ocorrer um erro na requisição, mostre-o no console e informe o usuário
       console.error('Erro na requisição:', error);
       alert('Erro na requisição de cadastro do pet.');
     }
   };
-
-
+  
   return (
     <div className="body-pet">
       <Header />

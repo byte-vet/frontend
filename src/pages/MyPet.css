@@ -3,14 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
 * {
-  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total definida */
+  box-sizing: border-box;
 }
 
 body, html {
   margin: 0;
   padding: 0;
-  width: 100%; /* Assegura que o body não ultrapasse a largura da viewport */
-  overflow-x: hidden; /* Esconde qualquer overflow horizontal */
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .mypet-header {
@@ -36,16 +36,15 @@ body, html {
   font-family: 'Inter', sans-serif;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   overflow-x: hidden; /* Assegura que não haverá rolagem horizontal */
   display: flex;
   width: 100%;
   padding: 0 20px; /* Adiciona padding horizontal para manter espaço nas laterais */
 }
 
-.pet-name {
+.pet-name-my-pet {
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.5rem !important;
   color: #ffffff;
   margin: 1rem 0;
 }
@@ -66,13 +65,13 @@ body, html {
   margin-bottom: 0.5rem;
 }
 
-.pet-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+.pet-photo-my-pet {
+  width: 160px !important;
+  height: 160px !important;
+  border-radius: 50% !important;
   object-fit: cover;
-  margin-bottom: 0.2rem;
-  margin-top: 3rem;
+  margin: 20px 0;
+  margin-bottom: 0;
 }
 
 .button-vaccination-card {

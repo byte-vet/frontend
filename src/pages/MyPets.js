@@ -28,7 +28,6 @@ function MyPets() {
         });
         if (response.ok) {
           const data = await response.json();
-          console.log("Pets data:", data);
           setPets(data);
         } else {
           throw new Error('Falha ao buscar pets');
@@ -75,16 +74,6 @@ function MyPets() {
     navigate('/add-pet');
   };
 
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSearch = () => {
-    console.log('Função de busca acionada com:', searchTerm);
-  };
-
   return (
     <div className="mypets-container">
       <Header />
@@ -92,26 +81,18 @@ function MyPets() {
       <h1 className="mypets-header">Meus pets</h1>
       <div className="pets-list">
         {pets.map((pet) => (
-          <div key={pet._id} className="pet-card">
-            <div onClick={() => handlePetClick(pet._id)} style={{ flex: 1, cursor: 'pointer' }}>
-              <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo" />
-              <div className="pet-info">
-                <h2>{pet.nome}</h2>
-                <p>Espécie: {pet.especie}</p>
-                <p>Raça: {pet.raca}</p>
-                <p>Idade: {pet.idade} anos</p>
-              </div>
-            </div>
+          <div key={pet._id} className="pet-card" onClick={() => handlePetClick(pet._id)}>
+            <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo-my-pets" />
+            <div className="pet-name-my-pets">{pet.nome}</div>
             <button className="delete-button" onClick={(e) => {
               e.stopPropagation();
               deletePet(pet._id);
-            }}>Excluir</button>
+            }}>🗑️</button>
           </div>
         ))}
       </div>
     </div>
   );
-  
 }
 
 export default MyPets;

@@ -19,11 +19,6 @@
 
 }
 
-.register-pet-select-wrapper {
-  position: relative;
-  width: 320px;
-}
-
 .register-pet-select {
   width: 100%;
   padding: 10px 30px 10px 10px;
@@ -38,6 +33,7 @@
   cursor: pointer;
 }
 
+
 /* .register-pet-select-wrapper::after {
   content: '▼';
   font-size: 12px;
@@ -49,6 +45,33 @@
   transform: translateY(-50%);
 } */
 
+
+.register-pet-header {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.bytevet-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.register-pet-logo {
+  margin-top: 2rem;
+}
+
+.register-pet-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 2px;
+}
 
 .register-pet-form {
   width: 100%;
@@ -67,7 +90,6 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,8 +106,7 @@
 }
 
 .button.add {
-  margin-top: 2px;
-  background-color: #f0ad4e;
+  background-color: #2196f3;
   align-self: center;
 }
 
@@ -94,9 +115,9 @@
     color: rgb(59, 55, 55);
     margin-bottom: 5px;
   }
-  
+
 .register-pet-input {
-  width: 300px;
+  width: 320px; 
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -104,7 +125,19 @@
   font-family: 'Inter', sans-serif;
   }
 
+
 .type-options {
   margin-top: -5px;;
   font-size: 12px;
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+
 }
