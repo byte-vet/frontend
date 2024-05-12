@@ -15,6 +15,7 @@ import LoginVet from './pages/LoginVet';
 import HomeVet from './pages/HomeVet';
 import RegisterConsulta from './pages/RegisterConsulta';
 import Veterinarios from './pages/Veterinarios';
+import Welcome from './pages/Welcome';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register-pet" element={<RegisterPet />} />
         <Route path="/home" element={<Home />} />
@@ -34,9 +36,7 @@ function App() {
         <Route path="/mypet/:petId" element={<MyPet token={userToken} />} />
         <Route path="/consulta" element={<Consulta/>}/>
         <Route path="/consultas" element={<Consultas />} />
-
         <Route path="/perfil" element={<Profile />} />
-
         <Route path="/register-vet" element={<RegisterVet />} />
         <Route path="/login-vet" element={<LoginVet />} />
         <Route path="/register-consulta" element={<RegisterConsulta />} />
