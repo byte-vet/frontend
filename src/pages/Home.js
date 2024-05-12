@@ -23,7 +23,6 @@ function Home() {
     <div className="home-container">
       <Header />
       <div className="main-buttons">    
-
         <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
         </div> 
           <button className="button my-pets" onClick={handleMyPets}>🐾 Meus pets</button>

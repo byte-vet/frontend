@@ -9,6 +9,7 @@ import MyPet from './pages/MyPet';
 import Veterinario from './pages/Veterinario'
 import Consulta from './pages/Consulta'
 import Consultas from './pages/Consultas'
+import Profile from './pages/Profile';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/mypet/:petId" element={<MyPet token={userToken} />} />
         <Route path="/consulta" element={<Consulta/>}/>
         <Route path="/consultas" element={<Consultas />} />
+        <Route path="/perfil" element={<Profile />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>

@@ -78,11 +78,11 @@
   background-color: #3b4a8a;
 }
 
-.login-link {
+.login-link, .forgotpw-link {
   display: block;
   background-color: transparent;
   border: none;
-  color: #2A5A75;
+  color: #d63636;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -90,6 +90,8 @@
   font-size: 1rem;
   cursor: pointer;
 }
+
+
 
 .login-link:hover {
   text-decoration: underline;
