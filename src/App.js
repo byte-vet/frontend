@@ -8,7 +8,6 @@ import RegisterPet from './pages/RegisterPet';
 import MyPet from './pages/MyPet';
 import Consulta from './pages/Consulta'
 import Consultas from './pages/Consultas'
-
 import Profile from './pages/Profile';
 import ProfileVet from './pages/ProfileVet';
 import RegisterVet from './pages/RegisterVet';
@@ -17,6 +16,7 @@ import HomeVet from './pages/HomeVet';
 import RegisterConsulta from './pages/RegisterConsulta';
 import Veterinarios from './pages/Veterinarios';
 import Welcome from './pages/Welcome';
+import ForgotPassword from './pages/ForgotPassword';
 
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
         <Route path="/login-vet" element={<LoginVet />} />
         <Route path="/register-consulta" element={<RegisterConsulta />} />
         <Route path="/veterinarios" element={<Veterinarios />} />
-
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>

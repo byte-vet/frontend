@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './RegisterPet.css';
-import logo from './assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/HeaderComponent/Header';
 
@@ -71,7 +70,10 @@ function RegisterPet() {
   
   return (
     <div className="body-pet">
-      <Header />
+      <Header 
+          propsLinkHome="/home"
+          propsLinkProfile="/perfil"
+        />
       <div className="register-pet-container">
         <h1 className="register-pet-title">Cadastrar Pet</h1>
         <form onSubmit={handleSubmit} className="register-pet-form">
