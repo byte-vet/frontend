@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import avatar from '../pages/assets/images/default-avatar.jpg';
 import './Profile.css';
 
-function Profile() {
+function ProfileVet() {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ function Profile() {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const backHome = () => {
-        navigate('/home');
+        navigate('/home-vet');
     }
 
     const handleUpdateUser = async (e) => {
@@ -24,21 +24,21 @@ function Profile() {
             return;
         }
 
-        const token = localStorage.getItem('token');
-        const userId = localStorage.getItem('userId');
-        if (!token) {
+        const tokenVet = localStorage.getItem('tokenVet');
+        const vetId = localStorage.getItem('vetId');
+        if (!tokenVet) {
             alert('Você precisa estar logado para acessar essa página.');
-            navigate('/login');
+            navigate('/login-vet');
             return;
         }
 
-        const endpoint = `https://backend-ks2k.onrender.com/users/${userId}`;
+        const endpoint = `https://backend-ks2k.onrender.com/vet/${vetId}`;
         try {
             const response = await fetch(endpoint, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${tokenVet}`
                 },
                 // enviar apenas os dados que nao estiverem vazios
                 body: JSON.stringify({
@@ -65,18 +65,18 @@ function Profile() {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const token = localStorage.getItem('token');
-            const userId = localStorage.getItem('userId');
-            if (!token) {
+            const tokenVet = localStorage.getItem('tokenVet');
+            const vetId = localStorage.getItem('vetId');
+            if (!tokenVet) {
                 alert('Você precisa estar logado para acessar essa página.');
                 navigate('/');
                 return;
             }
 
-            const endpoint = `https://backend-ks2k.onrender.com/users/${userId}`;
+            const endpoint = `https://backend-ks2k.onrender.com/vet/${vetId}`;
             try {
                 const response = await fetch(endpoint, {
-                    headers: { 'Authorization': `Bearer ${token}` },
+                    headers: { 'Authorization': `Bearer ${tokenVet}` },
                 });
                 if (response.ok) {
                     const data = await response.json();
@@ -123,4 +123,4 @@ function Profile() {
     );
 }
 
-export default Profile;
+export default ProfileVet;

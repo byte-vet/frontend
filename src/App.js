@@ -10,6 +10,7 @@ import Consulta from './pages/Consulta'
 import Consultas from './pages/Consultas'
 
 import Profile from './pages/Profile';
+import ProfileVet from './pages/ProfileVet';
 import RegisterVet from './pages/RegisterVet';
 import LoginVet from './pages/LoginVet';
 import HomeVet from './pages/HomeVet';
@@ -37,6 +38,7 @@ function App() {
         <Route path="/consulta" element={<Consulta/>}/>
         <Route path="/consultas" element={<Consultas />} />
         <Route path="/perfil" element={<Profile />} />
+        <Route path="/perfil-vet" element={<ProfileVet />} />
         <Route path="/register-vet" element={<RegisterVet />} />
         <Route path="/login-vet" element={<LoginVet />} />
         <Route path="/register-consulta" element={<RegisterConsulta />} />

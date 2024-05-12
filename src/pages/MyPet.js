@@ -47,7 +47,10 @@ function MyPet() {
 
   return (
     <div className="body-my-pet">
-      <Header />
+      <Header 
+          propsLinkHome="/home"
+          propsLinkProfile="/perfil"
+        />
       <div className="pet-container">
         <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo-my-pet" />
         <h1 className="pet-name-my-pet">{pet.nome}</h1>

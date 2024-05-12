@@ -20,7 +20,10 @@ function Consulta() {
 
   return (
     <div className="consulta-container">
-      <Header />
+      <Header 
+          propsLinkHome="/home"
+          propsLinkProfile="/perfil"
+        />
       <h1 className="consulta-title">Consulta</h1>
       <div className="consulta-details">
         <img src={consulta.petPhoto} alt={consulta.petName} className="detail-photo" />

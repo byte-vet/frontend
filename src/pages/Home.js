@@ -21,7 +21,10 @@ function Home() {
   return (
     <div className="body-home">
       <div className="home-container">
-        <Header />
+        <Header 
+          propsLinkHome="/home"
+          propsLinkProfile="/perfil"
+        />
         <div className="main-buttons">
           <button className="button add-pet-home" onClick={handleAddPet}>➕ Adicionar pet</button>
           <button className="button my-pets" onClick={handleMyPets}>🐾 Meus pets</button>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importando useNavigate
 import './Consultas.css';
-import logo from './assets/images/logo.png';
 import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
 import Header from '../components/HeaderComponent/Header';
 
@@ -28,7 +27,10 @@ function Consultas() {
 
   return (
     <div>
-    <Header />
+    <Header 
+          propsLinkHome="/home"
+          propsLinkProfile="/perfil"
+        />
     <div className="consultas-container">
       <h1 className="consultas-title">Consultas</h1>
       <button className="add-consulta-button" onClick={handleAddConsulta}>

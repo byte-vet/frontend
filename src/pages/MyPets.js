@@ -75,7 +75,10 @@ function MyPets() {
 
   return (
     <div className="mypets-container">
-      <Header />
+      <Header 
+          propsLinkHome="/home"
+          propsLinkProfile="/perfil"
+        />
       <button className="button add-pet" onClick={handleAddPet}>➕ Adicionar pet</button>
       <h1 className="mypets-header">Meus pets</h1>
       <div className="pets-list">
