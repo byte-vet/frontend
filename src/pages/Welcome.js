@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import catFamily from '../pages/assets/images/cat family-pana.svg';
 import veterinaryDog from '../pages/assets/images/Veterinary-pana.svg';
 import './Welcome.css';
 
