@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './RegisterPet.css';  // Reutilizando o CSS de RegisterPet
-import logo from './assets/images/logo.png';
+import './RegisterPet.css';  // Assegure-se que o caminho está correto
+import Header from '../components/HeaderComponent/Header'; // Confirme o caminho do componente Header
 import { useNavigate } from 'react-router-dom';
+import logo from './assets/images/logo.png'; // Confirme que o caminho para o logo está correto
 
 function RegisterConsulta() {
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ function RegisterConsulta() {
     motivo: '',
     diagnostico: ''
   });
-  const [animais, setAnimais] = useState([]); // Lista de animais
-  const [veterinarios, setVeterinarios] = useState([]); // Lista de veterinários
+  const [animais, setAnimais] = useState([]);
+  const [error, setError] = useState(''); // Declarando a variável de erro no estado
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -22,19 +23,19 @@ function RegisterConsulta() {
       'Authorization': `Bearer ${token}`
     };
 
-    async function fetchAnimais() {
-      const response = await fetch('https://backend-ks2k.onrender.com/animais', { headers });
-      const data = await response.json();
-      setAnimais(data);
+    async function fetchData() {
+      try {
+        const animaisResponse = await fetch('https://backend-ks2k.onrender.com/animais', { headers });
+        const animaisData = await animaisResponse.json();
+        setAnimais(animaisData);
+      } catch (error) {
+        setError('Falha ao carregar dados dos animais');
+        console.error('Error fetching animals:', error);
+      }
     }
-    async function fetchVeterinarios() {
-      const response = await fetch('https://backend-ks2k.onrender.com/vet/', { headers });
-      const data = await response.json();
-      setVeterinarios(data);
-    }
-    fetchAnimais();
-    fetchVeterinarios();
-  }, []);
+
+    fetchData();
+  }, [navigate]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -44,57 +45,64 @@ function RegisterConsulta() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const token = localStorage.getItem('token');
-    const vetId = localStorage.getItem('vetId');
-    const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    };
-    
+    if (!token) {
+      setError('Você precisa estar logado para registrar uma consulta.');
+      return;
+    }
+
     try {
-      const response = await fetch(`https://backend-ks2k.onrender.com/vet/${vetId}/consulta`, {
+      const response = await fetch(`https://backend-ks2k.onrender.com/vet/${consulta.vetId}/consulta`, {
         method: 'POST',
-        headers,
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(consulta)
       });
-      const data = await response.json();
-      if (response.ok) {
-        console.log(JSON.stringify(data, null, 2));
-        navigate('/consultas');
-      } else {
-        alert(data.message); // Display errors from server
+
+      if (!response.ok) {
+        const respData = await response.json();
+        setError(respData.message);
+        throw new Error(respData.message);
       }
+
+      navigate('/consultas');
     } catch (error) {
-      console.error('Failed to submit consulta:', error);
+      console.error('Failed to submit consultation:', error);
     }
   };
 
   return (
-    <div className="register-pet-container">
-      <img src={logo} alt="ByteVet Logo" className="register-pet-logo" />
-      <h1 className="bytevet-title">Registrar consulta</h1>
-      <form onSubmit={handleSubmit} className="register-pet-form">
-        <label className="register-pet-label">
-          Pet atendido:
-          <select name="animalId" value={consulta.animalId} onChange={handleChange} className="register-pet-select" required>
-            {animais.map(animal => (
-              <option key={animal._id} value={animal._id}>{animal.nome}</option>
-            ))}
-          </select>
-        </label>
-        <label className="register-pet-label">
-          Data da consulta:
-          <input type="date" name="data" value={consulta.data} onChange={handleChange} className="register-pet-input" required />
-        </label>
-        <label className="register-pet-label">
-          Motivo:
-          <input type="text" name="motivo" value={consulta.motivo} onChange={handleChange} className="register-pet-input" required />
-        </label>
-        <label className="register-pet-label">
-          Diagnostico:
-          <textarea name="diagnostico" value={consulta.diagnostico} onChange={handleChange} className="register-pet-input" required />
-        </label>
-        <button type="submit" className="button register">Registrar</button>
-      </form>
+    <div className="body-pet">
+      <Header propsLinkHome="/home" propsLinkProfile="/perfil" />
+      <div className="register-pet-container">
+        <img src={logo} alt="ByteVet Logo" className="register-pet-logo" />
+        <h1 className="register-pet-title">Registrar Consulta</h1>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleSubmit} className="register-pet-form">
+          <label className="register-pet-label">
+            Pet atendido:
+            <select name="animalId" value={consulta.animalId} onChange={handleChange} className="register-pet-select" required>
+              {animais.map(animal => (
+                <option key={animal._id} value={animal._id}>{animal.nome}</option>
+              ))}
+            </select>
+          </label>
+          <label className="register-pet-label">
+            Data da consulta:
+            <input type="date" name="data" value={consulta.data} onChange={handleChange} className="register-pet-input" required />
+          </label>
+          <label className="register-pet-label">
+            Motivo:
+            <input type="text" name="motivo" value={consulta.motivo} onChange={handleChange} className="register-pet-input" required />
+          </label>
+          <label className="register-pet-label">
+            Diagnóstico:
+            <textarea name="diagnostico" value={consulta.diagnostico} onChange={handleChange} className="register-pet-input" required />
+          </label>
+          <button type="submit" className="button register">Registrar</button>
+        </form>
+      </div>
     </div>
   );
 }
