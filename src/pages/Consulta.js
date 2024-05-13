@@ -2,36 +2,65 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Consulta.css';
 import Header from '../components/HeaderComponent/Header';
-import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
+import cachorroImage from './assets/images/cachorro.jpg';
 
 function Consulta() {
-  const { consultaId } = useParams(); // Obtenha o ID da consulta dos parâmetros da rota
+  const { consultaId } = useParams();  // Get the consulta ID from the route parameters
   const [consulta, setConsulta] = useState(null);
+  const [animal, setAnimal] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const vetId = localStorage.getItem('vetId');
 
   useEffect(() => {
-    const fetchConsulta = async () => {
+    const fetchData = async () => {
+      setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch(`https://backend-ks2k.onrender.com/vet/consulta/${consultaId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,  // Supondo que você esteja usando autenticação JWT
-          'Content-Type': 'application/json'
-        }
-      });
-      if (!response.ok) {
-        const errorText = await response.text(); // Obtém a resposta como texto para ver o erro
-        console.error('Failed to fetch consulta:', errorText);
-        return;
-      }
-      
-      const data = await response.json();
-      setConsulta(data);
-    };
-    
-    fetchConsulta();
-  }, [consultaId]);
 
-  if (!consulta) {
-    return <div>Loading...</div>; // Ou algum outro indicador de carregamento
+      try {
+        const responseConsulta = await fetch(`https://backend-ks2k.onrender.com/vet/${vetId}/consulta/${consultaId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        if (!responseConsulta.ok) {
+          throw new Error('Failed to fetch consulta');
+        }
+
+        const dataConsulta = await responseConsulta.json();
+        setConsulta(dataConsulta);
+        console.log('Fetching animal with ID:', dataConsulta.animalId);
+        console.log('URL:', `https://backend-ks2k.onrender.com/vet/animais/${dataConsulta.animalId}`);
+        const responseAnimal = await fetch(`https://backend-ks2k.onrender.com/vet/animais/${dataConsulta.animalId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        if (!responseAnimal.ok) {
+          throw new Error('Failed to fetch animal');
+        }
+        const dataAnimal = await responseAnimal.json();
+        setAnimal(dataAnimal);
+      } catch (e) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [vetId, consultaId]);
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
+  if (error) {
+    return <p>Ocorreu um erro: {error}</p>;
+  }
+  if (!consulta || !animal) {
+    return <p>Nenhum dado disponível.</p>;
   }
 
   const formatDate = (dateString) => {
@@ -44,12 +73,11 @@ function Consulta() {
       <Header propsLinkHome="/home" propsLinkProfile="/perfil" />
       <h1 className="consulta-title">Consulta</h1>
       <div className="consulta-details">
-        <img src={consulta.petPhoto || profilePlaceholder} alt={consulta.petName} className="detail-photo" />
-        <div className="detail-item"><strong>Pet:</strong> {consulta.petName}</div>
-        <div className="detail-item"><strong>Data:</strong> {formatDate(consulta.date)}</div>
-        <div className="detail-item"><strong>Médico:</strong> {consulta.doctorName}</div>
-        <div className="detail-item"><strong>Clínica:</strong> {consulta.clinicName}</div>
-        <div className="detail-item"><strong>Descrição:</strong> {consulta.description}</div>
+        <img src={consulta.petPhoto || cachorroImage} alt={animal.nome || 'Animal'} className="detail-photo" />
+        <div className="detail-item"><strong>Pet:</strong> {animal.nome}</div>
+        <div className="detail-item"><strong>Data:</strong> {formatDate(consulta.data)}</div>
+        <div className="detail-item"><strong>Motivo:</strong> {consulta.motivo}</div>
+        <div className="detail-item"><strong>Diagnostico:</strong> {consulta.diagnostico}</div>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Consultas.css';
-import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
 import Header from '../components/HeaderComponent/Header';
+import cachorroImage from './assets/images/cachorro.jpg';
 
 function Consultas() {
   const [consultas, setConsultas] = useState([]);
@@ -21,6 +21,18 @@ function Consultas() {
       });
       if (response.ok) {
         const data = await response.json();
+        await Promise.all(data.map(async (consulta) => {
+          const animalResponse = await fetch(`https://backend-ks2k.onrender.com/vet/animais/${consulta.animalId}`, {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            }
+          });
+          if (animalResponse.ok) {
+            const animalData = await animalResponse.json();
+            consulta.animalDetails = animalData; // Store animal details within each consulta
+          }
+        }));
         setConsultas(data);
       }
     };
@@ -33,7 +45,8 @@ function Consultas() {
   };
 
   const redirectToConsulta = (consultaId) => {
-    navigate(`/consulta/${consultaId}`);
+    const vetId = localStorage.getItem('vetId');
+    navigate(`/vet/${vetId}/consulta/${consultaId}`);
   };
 
   const formatDate = (dateString) => {
@@ -51,8 +64,8 @@ function Consultas() {
         </button>
         {consultas.map(consulta => (
           <button key={consulta._id} onClick={() => redirectToConsulta(consulta._id)} className="consulta-button">
-            {formatDate(consulta.data)} - {consulta.animalId.nome}
-            <img src={consulta.animalId.photo || profilePlaceholder} alt={consulta.animalId.nome} className="pet-photo-consultas" />
+            {formatDate(consulta.data)} - {consulta.animalDetails ? consulta.animalDetails.nome : 'Loading animal...'}
+            <img src={consulta.animalDetails && consulta.animalDetails.photo ? consulta.animalDetails.photo : cachorroImage} alt={consulta.animalDetails ? consulta.animalDetails.nome : 'Animal'} className="pet-photo-consultas" />
           </button>
         ))}
       </div>

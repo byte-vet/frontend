@@ -35,7 +35,7 @@ function App() {
         <Route path="/mypets" element={<MyPets />} />
         <Route path="/add-pet" element={<RegisterPet/>}/>
         <Route path="/mypet/:petId" element={<MyPet token={userToken} />} />
-        <Route path="/consulta/:consultaId" element={<Consulta />} />
+        <Route path="/vet/:vetId/consulta/:consultaId" element={<Consulta />} />
         <Route path="/consultas" element={<Consultas />} />
         <Route path="/perfil" element={<Profile />} />
         <Route path="/perfil-vet" element={<ProfileVet />} />
