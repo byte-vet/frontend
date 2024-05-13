@@ -20,6 +20,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import CartaoVacinacao from './pages/CartaoVacinacao';
 import ResetPassword from './pages/ResetPassword';
 import RegisterVacina from './pages/RegisterVacina';
+import ConsultasUser from './pages/ConsultasUser';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/mypet/:petId" element={<MyPet token={userToken} />} />
         <Route path="/vet/:vetId/consulta/:consultaId" element={<Consulta />} />
         <Route path="/consultas" element={<Consultas />} />
+        <Route path="/consultas-usuario" element={<ConsultasUser />} />
         <Route path="/perfil" element={<Profile />} />
         <Route path="/perfil-vet" element={<ProfileVet />} />
         <Route path="/register-vet" element={<RegisterVet />} />

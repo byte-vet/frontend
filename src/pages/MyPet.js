@@ -42,7 +42,7 @@ function MyPet() {
   }
 
   const handleConsultas = () => {
-    navigate('/consultas');
+    navigate('/consultas-usuario');
   };
 
   const handleVacinas = () => {
