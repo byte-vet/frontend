@@ -18,6 +18,7 @@ import Veterinarios from './pages/Veterinarios';
 import Welcome from './pages/Welcome';
 import ForgotPassword from './pages/ForgotPassword';
 import CartaoVacinacao from './pages/CartaoVacinacao';
+import ResetPassword from './pages/ResetPassword';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/veterinarios" element={<Veterinarios />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/cartaovacinacao" element={<CartaoVacinacao />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>
