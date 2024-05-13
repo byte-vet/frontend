@@ -29,6 +29,7 @@ function Login() {
         console.log('Login realizado com sucesso!');
         navigate('/home');
       } else {
+        alert('Erro ao fazer login: ' + data.message)
         console.error('Erro no login:', data.message);
       }
     } catch (error) {

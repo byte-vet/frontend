@@ -56,7 +56,7 @@ function Consultas() {
 
   return (
     <div>
-      <Header propsLinkHome="/home" propsLinkProfile="/perfil" />
+      <Header propsLinkHome="/home-vet" propsLinkProfile="/perfil-vet" />
       <div className="consultas-container">
         <h1 className="consultas-title">Consultas</h1>
         <button className="add-consulta-button" onClick={handleAddConsulta}>

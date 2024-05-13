@@ -70,7 +70,7 @@ function Consulta() {
 
   return (
     <div className="consulta-container">
-      <Header propsLinkHome="/home" propsLinkProfile="/perfil" />
+      <Header propsLinkHome="/home-vet" propsLinkProfile="/perfil-vet" />
       <h1 className="consulta-title">Consulta</h1>
       <div className="consulta-details">
         <img src={consulta.petPhoto || cachorroImage} alt={animal.nome || 'Animal'} className="detail-photo" />
