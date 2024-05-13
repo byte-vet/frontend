@@ -45,6 +45,10 @@ function MyPet() {
     navigate('/consultas');
   };
 
+  const handleVacinas = () => {
+    navigate('/cartaovacinacao');
+  };
+
   return (
     <div className="body-my-pet">
       <Header 
@@ -58,7 +62,7 @@ function MyPet() {
         <p className="pet-info">Peso: {pet.peso}kg</p>
         <p className="pet-info">Raça: {pet.raca}</p>
         <p className="pet-info">Espécie: {pet.especie}</p>
-        <a className="button-vaccination-card">Cartão de Vacinação</a>
+        <button className="button-vaccination-card" onClick={handleVacinas}>Cartão de Vacinação</button>
         <button className="button-appointments-card" onClick={handleConsultas}>Histórico de consultas</button>
       </div>
     </div>

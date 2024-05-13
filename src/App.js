@@ -19,7 +19,7 @@ import Welcome from './pages/Welcome';
 import ForgotPassword from './pages/ForgotPassword';
 import CartaoVacinacao from './pages/CartaoVacinacao';
 import ResetPassword from './pages/ResetPassword';
-
+import RegisterVacina from './pages/RegisterVacina';
 
 function App() {
 
@@ -48,6 +48,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/cartaovacinacao" element={<CartaoVacinacao />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/register-vacina" element={<RegisterVacina />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>

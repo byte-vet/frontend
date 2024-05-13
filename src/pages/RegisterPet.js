@@ -55,6 +55,7 @@ function RegisterPet() {
       });
 
       const responseData = await response.json(); // Obtenha a resposta JSON do servidor
+      localStorage.setItem('petId', responseData.id);
       if (response.ok) {
         console.log('Pet cadastrado com sucesso!', responseData);
         navigate('/mypets');
