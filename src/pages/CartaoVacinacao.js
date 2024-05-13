@@ -11,7 +11,7 @@ function CartaoDeVacinacao({ petId, petName, petPhoto }) {
 
   useEffect(() => {
     const fetchVaccines = async () => {
-      const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
+      const token = localStorage.getItem('token');
       try {
         const response = await fetch(`https://backend-ks2k.onrender.com/${localStorage.getItem('userId')}/pets/${petId}/vacinas`, {
           headers: {

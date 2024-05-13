@@ -1,87 +1,83 @@
-import React, { useState, useEffect } from 'react';
-import './RegisterPet.css';
+import React, { useState } from 'react';
+import './RegisterPet.css';  // Reutilizando os estilos de RegisterPet
+import Header from '../components/HeaderComponent/Header';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterVacina() {
-  const [nomeDaVacina, setNomeDaVacina] = useState('');
-  const [dataDeAplicacao, setDataDeAplicacao] = useState('');
-  const [error, setError] = useState('');
+  const [vaccine, setVaccine] = useState({
+    nomeDaVacina: '',
+    dataDeAplicacao: ''
+  });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const [petId, setPetId] = useState(localStorage.getItem('petId'));
-  const userId = localStorage.getItem('userId');
-
-  console.log(petId)
-
-  useEffect(() => {
-    if (!petId) {
-      const storedPetId = localStorage.getItem('petId');
-      if (storedPetId) {
-        setPetId(storedPetId);
-      }
-    }
-  }, [petId]);
-
-  const handleInputChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    if (name === 'nomeDaVacina') {
-      setNomeDaVacina(value);
-    } else if (name === 'dataDeAplicacao') {
-      setDataDeAplicacao(value);
-    }
+    setVaccine(prevVaccine => ({
+      ...prevVaccine,
+      [name]: value
+    }));
   };
 
-  const submitVaccine = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+    const petId = localStorage.getItem('petId');
 
-    if (!nomeDaVacina || !dataDeAplicacao) {
-      setError('Please fill in all fields');
+    if (!token || !petId) {
+      setError('Você precisa estar logado e selecionar um pet.');
       return;
     }
 
     setLoading(true);
+    const endpoint = `https://backend-ks2k.onrender.com/users/${userId}/pets/${petId}/vacinas`;
+
     try {
-      const response = await fetch(`https://backend-ks2k.onrender.com/users/${userId}/pets/${petId}/vacinas`, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          nomeDaVacina,
-          dataDeAplicacao
+          nomeDaVacina: vaccine.nomeDaVacina,
+          dataDeAplicacao: vaccine.dataDeAplicacao
         })
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to register vaccine');
+      if (response.ok) {
+        navigate('/cartaovacinacao'); // Ajuste para o caminho correto
+      } else {
+        throw new Error('Falha ao registrar vacina');
       }
-
-      navigate(`/cartaovacinacao`); // Adjust this path to match your correct route for viewing the vaccination card
     } catch (error) {
-      console.error('Error registering vaccine:', error.message);
+      console.error('Erro ao registrar vacina:', error);
       setError(error.message);
     } finally {
       setLoading(false);
     }
   };
 
-  if (!userId || !petId) {
-    return <div>Please select a pet and ensure you are logged in.</div>;
-  }
-
   return (
-    <div>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={submitVaccine}>
-        <label className="register-pet-label" htmlFor="nomeDaVacina">Nome da Vacina:</label>
-        <input className="register-pet-input" type="text" id="nomeDaVacina" name="nomeDaVacina" value={nomeDaVacina} onChange={handleInputChange} />
-        <label className="register-pet-label" htmlFor="dataDeAplicacao">Data de Aplicação:</label>
-        <input className="register-pet-input" type="date" id="dataDeAplicacao" name="dataDeAplicacao" value={dataDeAplicacao} onChange={handleInputChange} />
-        <button className="button register" type="submit" disabled={loading}>Registrar Vacina</button>
-      </form>
+    <div className="body-pet">
+      <Header propsLinkHome="/home" propsLinkProfile="/perfil" />
+      <div className="register-pet-container">
+        <h1 className="register-pet-title">Registrar vacina</h1>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleSubmit} className="register-pet-form">
+          <label className="register-pet-label" htmlFor="nomeDaVacina">Nome da vacina:</label>
+          <input className="register-pet-input" type="text" id="nomeDaVacina" name="nomeDaVacina" value={vaccine.nomeDaVacina} onChange={handleChange} required />
+
+          <label className="register-pet-label" htmlFor="dataDeAplicacao">Data de aplicação:</label>
+          <input className="register-pet-input" type="date" id="dataDeAplicacao" name="dataDeAplicacao" value={vaccine.dataDeAplicacao} onChange={handleChange} required />
+
+          <div className="register-pet-buttons">
+            <button type="submit" className="button register" disabled={loading}>Registrar Vacina</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
