@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './MyPets.css';
-import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
+import cachorroImage from './assets/images/cachorro.jpg';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/HeaderComponent/Header';
 
@@ -84,7 +84,7 @@ function MyPets() {
       <div className="pets-list">
         {pets.map((pet) => (
           <div key={pet._id} className="pet-card" onClick={() => handlePetClick(pet._id)}>
-            <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo-my-pets" />
+            <img src={pet.photo || cachorroImage} alt={pet.nome} className="pet-photo-my-pets" />
             <div className="pet-name-my-pets">{pet.nome}</div>
             <button className="delete-button" onClick={(e) => {
               e.stopPropagation();

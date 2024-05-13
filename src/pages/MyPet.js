@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MyPet.css';
 import Header from '../components/HeaderComponent/Header';
-import profilePlaceholder from './assets/images/profile_placeholder.jpeg';
+import cachorroImage from './assets/images/cachorro.jpg';
 import { useParams, useNavigate } from 'react-router-dom';
 
 function MyPet() {
@@ -52,7 +52,7 @@ function MyPet() {
           propsLinkProfile="/perfil"
         />
       <div className="pet-container">
-        <img src={pet.photo || profilePlaceholder} alt={pet.nome} className="pet-photo-my-pet" />
+        <img src={pet.photo || cachorroImage} alt={pet.nome} className="pet-photo-my-pet" />
         <h1 className="pet-name-my-pet">{pet.nome}</h1>
         <p className="pet-age">Idade: {pet.idade} anos</p>
         <p className="pet-info">Peso: {pet.peso}kg</p>
