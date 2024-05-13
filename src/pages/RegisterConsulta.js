@@ -9,14 +9,31 @@ function RegisterConsulta() {
     animalId: '',
     vetId: '',
     data: '',
-    nomeClinica: '',
-    descricao: ''
+    motivo: '',
+    diagnostico: ''
   });
   const [animais, setAnimais] = useState([]); // Lista de animais
   const [veterinarios, setVeterinarios] = useState([]); // Lista de veterinários
 
   useEffect(() => {
-    // Fetch Animals and Vets
+    const token = localStorage.getItem('token');
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    };
+
+    async function fetchAnimais() {
+      const response = await fetch('https://backend-ks2k.onrender.com/animais', { headers });
+      const data = await response.json();
+      setAnimais(data);
+    }
+    async function fetchVeterinarios() {
+      const response = await fetch('https://backend-ks2k.onrender.com/vet/', { headers });
+      const data = await response.json();
+      setVeterinarios(data);
+    }
+    fetchAnimais();
+    fetchVeterinarios();
   }, []);
 
   const handleChange = (event) => {
@@ -26,13 +43,34 @@ function RegisterConsulta() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Logic to submit the data
+    const token = localStorage.getItem('token');
+    const vetId = localStorage.getItem('vetId');
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    };
+    
+    try {
+      const response = await fetch(`https://backend-ks2k.onrender.com/vet/${vetId}/consulta`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(consulta)
+      });
+      const data = await response.json();
+      if (response.ok) {
+        console.log(JSON.stringify(data, null, 2));
+        navigate('/consultas');
+      } else {
+        alert(data.message); // Display errors from server
+      }
+    } catch (error) {
+      console.error('Failed to submit consulta:', error);
+    }
   };
 
   return (
     <div className="register-pet-container">
       <img src={logo} alt="ByteVet Logo" className="register-pet-logo" />
-      <h1 className="bytevet-title">ByteVet</h1>
       <h1 className="bytevet-title">Registrar consulta</h1>
       <form onSubmit={handleSubmit} className="register-pet-form">
         <label className="register-pet-label">
@@ -44,24 +82,16 @@ function RegisterConsulta() {
           </select>
         </label>
         <label className="register-pet-label">
-          Veterinário:
-          <select name="vetId" value={consulta.vetId} onChange={handleChange} className="register-pet-select" required>
-            {veterinarios.map(vet => (
-              <option key={vet._id} value={vet._id}>{vet.nome}</option>
-            ))}
-          </select>
-        </label>
-        <label className="register-pet-label">
           Data da consulta:
           <input type="date" name="data" value={consulta.data} onChange={handleChange} className="register-pet-input" required />
         </label>
         <label className="register-pet-label">
-          Nome da clínica:
-          <input type="text" name="nomeClinica" value={consulta.nomeClinica} onChange={handleChange} className="register-pet-input" required />
+          Motivo:
+          <input type="text" name="motivo" value={consulta.motivo} onChange={handleChange} className="register-pet-input" required />
         </label>
         <label className="register-pet-label">
-          Descrição:
-          <textarea name="descricao" value={consulta.descricao} onChange={handleChange} className="register-pet-input" required />
+          Diagnostico:
+          <textarea name="diagnostico" value={consulta.diagnostico} onChange={handleChange} className="register-pet-input" required />
         </label>
         <button type="submit" className="button register">Registrar</button>
       </form>

@@ -7,7 +7,7 @@ function HomeVet() {
   let navigate = useNavigate();
 
   const handleAddConsulta = () => {
-    navigate('/add-consulta');
+    navigate('/register-consulta');
   };
 
   const handleAppointments = () => {
