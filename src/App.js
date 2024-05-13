@@ -17,6 +17,7 @@ import RegisterConsulta from './pages/RegisterConsulta';
 import Veterinarios from './pages/Veterinarios';
 import Welcome from './pages/Welcome';
 import ForgotPassword from './pages/ForgotPassword';
+import CartaoVacinacao from './pages/CartaoVacinacao';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/register-consulta" element={<RegisterConsulta />} />
         <Route path="/veterinarios" element={<Veterinarios />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/cartaovacinacao" element={<CartaoVacinacao />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>
