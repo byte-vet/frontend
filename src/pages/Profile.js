@@ -16,6 +16,12 @@ function Profile() {
         navigate('/home');
     }
 
+    const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        navigate('/');
+    }
+
     const handleUpdateUser = async (e) => {
         e.preventDefault();
 
@@ -96,7 +102,10 @@ function Profile() {
     return (
         <div className="profile-card">
             <div className="profile-header">
+            <div className="buttons-profile-header">
                 <button className="back-to-home" onClick={backHome}> Voltar </button>
+                <button className="logout" onClick={logout}> Sair </button>
+                </div>
                 <div className="info-header">
                     <img src={avatar} alt="Avatar" className="profile-avatar" />
                     <p className="fullname">{user?.fullName}</p>
