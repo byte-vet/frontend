@@ -30,7 +30,7 @@ function ResetPassword() {
         const data = await response.json();
 
         if (response.ok) {
-            alert(data);
+            alert("Senha alterada com sucesso!");
             window.location.href = '/login';
         } else {
             console.error('Erro ao alterar senha:', data.message);
