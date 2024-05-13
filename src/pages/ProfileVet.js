@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import avatar from '../pages/assets/images/default-avatar.jpg';
 import './Profile.css';
 
@@ -14,6 +14,12 @@ function ProfileVet() {
 
     const backHome = () => {
         navigate('/home-vet');
+    }
+
+    const logout = () => {
+        localStorage.removeItem('tokenVet');
+        localStorage.removeItem('vetId');
+        navigate('/');
     }
 
     const handleUpdateUser = async (e) => {
@@ -96,7 +102,10 @@ function ProfileVet() {
     return (
         <div className="profile-card">
             <div className="profile-header">
+                <div className="buttons-profile-header">
                 <button className="back-to-home" onClick={backHome}> Voltar </button>
+                <button className="logout" onClick={logout}> Sair </button>
+                </div>
                 <div className="info-header">
                     <img src={avatar} alt="Avatar" className="profile-avatar" />
                     <p className="fullname">{user?.fullName}</p>
