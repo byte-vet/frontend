@@ -10,7 +10,7 @@ function Welcome() {
       <h1 className="welcome-title">Conheça a ByteVet!</h1>
       <p className="welcome-frase">Seu pet merece o melhor! Acompanhe a saúde, encontre serviços e conecte-se com veterinários.</p>
       <Link to="/login">
-      <button class="button-explore">Explore </button>
+      <button className="button-explore">Explore </button>
       </Link>
       </div>
     </div>

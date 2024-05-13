@@ -8,6 +8,7 @@ function MyPet() {
   const { petId } = useParams();  // Assumindo que a rota é algo como '/mypet/:petId'
   const [pet, setPet] = useState(null);
   const navigate = useNavigate();
+  localStorage.setItem('petId', petId);
 
   useEffect(() => {
     const fetchPet = async () => {

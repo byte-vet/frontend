@@ -12,8 +12,9 @@ function CartaoDeVacinacao({ petId, petName, petPhoto }) {
   useEffect(() => {
     const fetchVaccines = async () => {
       const token = localStorage.getItem('token');
+      const pet_id = localStorage.getItem('petId');
       try {
-        const response = await fetch(`https://backend-ks2k.onrender.com/${localStorage.getItem('userId')}/pets/${petId}/vacinas`, {
+        const response = await fetch(`https://backend-ks2k.onrender.com/users/${localStorage.getItem('userId')}/pets/${pet_id}/vacinas`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -50,10 +51,10 @@ function CartaoDeVacinacao({ petId, petName, petPhoto }) {
       <h2 className="mypets-header">Vacinas:</h2>
       <div className="pets-list">
         {vaccines.map((vaccine) => (
-          <div key={vaccine.id} className="pet-card">
+          <div key={vaccine._id} className="pet-card">
             <div>
-              <div className="pet-name-my-pets" style={{ fontWeight: 'normal', fontSize: '1em' }}>{vaccine.name}</div>
-              <div className="pet-name-my-pets" style={{ fontWeight: 'normal', fontSize: '0.8em' }}>{formatDate(vaccine.date)}</div>
+              <div className="pet-name-my-pets" style={{ fontWeight: 'normal', fontSize: '1em' }}>{vaccine.nomeDaVacina}</div>
+              <div className="pet-name-my-pets" style={{ fontWeight: 'normal', fontSize: '0.8em' }}>{vaccine.dataDeAplicacao}</div>
             </div>
           </div>
         ))}
