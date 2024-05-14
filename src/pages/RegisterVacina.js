@@ -33,7 +33,6 @@ function RegisterVacina() {
 
     setLoading(true);
     const endpoint = `https://backend-ks2k.onrender.com/users/${userId}/pets/${petId}/vacinas`;
-
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -42,10 +41,12 @@ function RegisterVacina() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          id_animal: petId,
           nomeDaVacina: vaccine.nomeDaVacina,
           dataDeAplicacao: vaccine.dataDeAplicacao
         })
       });
+      console.log(response);
 
       if (response.ok) {
         navigate('/cartaovacinacao'); // Ajuste para o caminho correto

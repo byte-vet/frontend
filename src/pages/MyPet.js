@@ -65,6 +65,8 @@ function MyPet() {
         <p className="pet-info">Peso: {pet.peso}kg</p>
         <p className="pet-info">Raça: {pet.raca}</p>
         <p className="pet-info">Espécie: {pet.especie}</p>
+        <button className="button-vaccination-card" onClick={handleVacinas}>Cartão de Vacinação</button>
+        
       </div>
     </div>
   );
