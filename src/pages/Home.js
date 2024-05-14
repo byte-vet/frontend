@@ -11,7 +11,7 @@ function Home() {
   };
 
   const handleAppointments = () => {
-    navigate('/consultas-user');
+    navigate('/consultas-usuario');
   };
 
   const handleAddPet = () => {

@@ -138,15 +138,6 @@ function RegisterPet() {
             </div>
           </form>
           <div className="register-pet-buttons">
-          <button className="button add">
-            Adicionar consulta
-          </button>
-          <button className="button add">
-            Adicionar Cartão de vacina
-          </button>
-          <button className="button add">
-            Adicionar foto
-          </button>
           <button type="submit" className="button register">
             Cadastrar
           </button>
