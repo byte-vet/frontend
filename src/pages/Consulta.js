@@ -15,7 +15,7 @@ function Consulta() {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tokenVet');
 
       try {
         const responseConsulta = await fetch(`https://backend-ks2k.onrender.com/vet/${vetId}/consulta/${consultaId}`, {

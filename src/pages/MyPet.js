@@ -43,7 +43,9 @@ function MyPet() {
   }
 
   const handleConsultas = () => {
-    navigate('/consultas-usuario');
+    const userId = localStorage.getItem('userId');
+    const animalId = localStorage.getItem('petId');
+    navigate(`/users/${userId}/pets/${animalId}/consultas`);
   };
 
   const handleVacinas = () => {
@@ -63,8 +65,6 @@ function MyPet() {
         <p className="pet-info">Peso: {pet.peso}kg</p>
         <p className="pet-info">Raça: {pet.raca}</p>
         <p className="pet-info">Espécie: {pet.especie}</p>
-        <button className="button-vaccination-card" onClick={handleVacinas}>Cartão de Vacinação</button>
-        <button className="button-appointments-card" onClick={handleConsultas}>Histórico de consultas</button>
       </div>
     </div>
   );

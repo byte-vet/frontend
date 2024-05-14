@@ -17,7 +17,7 @@ function RegisterConsulta() {
   const [error, setError] = useState(''); // Declarando a variável de erro no estado
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('tokenVet');
     const headers = {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -44,14 +44,16 @@ function RegisterConsulta() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('tokenVet');
+    const vetId = localStorage.getItem('vetId');
+
     if (!token) {
       setError('Você precisa estar logado para registrar uma consulta.');
       return;
     }
 
     try {
-      const response = await fetch(`https://backend-ks2k.onrender.com/vet/${consulta.vetId}/consulta`, {
+      const response = await fetch(`https://backend-ks2k.onrender.com/vet/${vetId}/consulta`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

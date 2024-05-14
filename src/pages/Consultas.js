@@ -7,51 +7,40 @@ import cachorroImage from './assets/images/cachorro.jpg';
 function Consultas() {
   const [consultas, setConsultas] = useState([]);
   const navigate = useNavigate();
+  const vetId = localStorage.getItem('vetId'); // Ensure vetId is stored in localStorage
 
   useEffect(() => {
-    const fetchConsultas = async () => {
-      const token = localStorage.getItem('token');
-      const vetId = localStorage.getItem('vetId');
-      
-      const response = await fetch(`https://backend-ks2k.onrender.com/vet/${vetId}/consulta`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        }
-      });
-      if (response.ok) {
-        const data = await response.json();
-        await Promise.all(data.map(async (consulta) => {
-          const animalResponse = await fetch(`https://backend-ks2k.onrender.com/vet/animais/${consulta.animalId}`, {
-            headers: {
-              'Authorization': `Bearer ${token}`,
-              'Content-Type': 'application/json',
-            }
+      const fetchConsultas = async () => {
+          const token = localStorage.getItem('tokenVet');
+          const response = await fetch(`https://backend-ks2k.onrender.com/vet/${vetId}/consulta`, {
+              headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json'
+              }
           });
-          if (animalResponse.ok) {
-            const animalData = await animalResponse.json();
-            consulta.animalDetails = animalData; // Store animal details within each consulta
+
+          if (!response.ok) {
+              console.error('Failed to fetch consultas:', await response.text());
+              return;
           }
-        }));
-        setConsultas(data);
-      }
-    };
+          const data = await response.json();
+          setConsultas(data);
+      };
 
-    fetchConsultas();
-  }, []);
-
-  const handleAddConsulta = () => {
-    navigate('/register-consulta');
-  };
+      fetchConsultas();
+  }, [vetId]);
 
   const redirectToConsulta = (consultaId) => {
-    const vetId = localStorage.getItem('vetId');
     navigate(`/vet/${vetId}/consulta/${consultaId}`);
   };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+  };
+
+  const handleAddConsulta = () => {
+    navigate('/register-consulta');
   };
 
   return (
@@ -64,10 +53,10 @@ function Consultas() {
         </button>
         {consultas.map(consulta => (
           <button key={consulta._id} onClick={() => redirectToConsulta(consulta._id)} className="consulta-button">
-            {formatDate(consulta.data)} - {consulta.animalDetails ? consulta.animalDetails.nome : 'Loading animal...'}
-            <img src={consulta.animalDetails && consulta.animalDetails.photo ? consulta.animalDetails.photo : cachorroImage} alt={consulta.animalDetails ? consulta.animalDetails.nome : 'Animal'} className="pet-photo-consultas" />
+              {formatDate(consulta.data)} - {consulta.motivo}
+              <img src={cachorroImage} alt='Consulta' className="pet-photo-consultas" />
           </button>
-        ))}
+      ))}
       </div>
     </div>
   );
