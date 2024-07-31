@@ -36,7 +36,7 @@ function Register() {
       const data = await response.json();
       
       if (response.ok) {
-        alert('Registro realizado com sucesso! Faça login para acessar a plataforma.');
+        alert('Registro realizado com sucesso! Enviamos uma confirmação para o seu email.');
         navigate('/');
       } else {
         alert(`Erro no registro: ${data.message}`);
