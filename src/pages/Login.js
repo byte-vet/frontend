@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import './Login.css';
 import logo from './assets/images/logo.png'; // Importação correta do logo
 import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-    // Função para lidar com o login
+  // Função para lidar com o login
   const handleLogin = async (email, password) => {
     try {
       const response = await fetch('https://backend-ks2k.onrender.com/auth/login', {
@@ -37,6 +39,29 @@ function Login() {
     }
   };
 
+  const handleGoogleLogin = async (credential) => {
+    const { email, name, sub } = jwtDecode(credential?.credential);
+    try {
+      const response = await fetch('https://backend-ks2k.onrender.com/auth/google/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, fullName: name, password: sub })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.id);
+        console.log('Login realizado com sucesso!');
+        navigate('/home');
+      }
+    } catch (error) {
+      alert('Erro ao fazer login.')
+    }
+  };
 
   return (
     <div className="login-background">
@@ -47,8 +72,8 @@ function Login() {
         <h1 className="login-title">ByteVet</h1>
         <h1 className="login-title">Usuário</h1>
         <form className="login-form" onSubmit={(e) => {
-        e.preventDefault();
-        handleLogin(email, password);
+          e.preventDefault();
+          handleLogin(email, password);
         }}>
           <div className="input-wrapper">
             <input
@@ -72,6 +97,14 @@ function Login() {
           </div>
           <button type="submit" className="login-button">Entrar</button>
           <div className="login-links">
+            <GoogleLogin
+              onSuccess={credentialResponse => {
+                handleGoogleLogin(credentialResponse);
+              }}
+              onError={() => {
+                alert('Erro ao fazer login.');
+              }}
+            />
             <a href="/forgot-password" className="forgotpw-link">Esqueci minha senha</a>
             <a href="/register" className="login-link">Não possui conta? Registre-se</a>
             <a href="/login-vet" className="login-link">Sou veterinario!</a>
