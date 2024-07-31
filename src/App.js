@@ -21,6 +21,7 @@ import CartaoVacinacao from './pages/CartaoVacinacao';
 import ResetPassword from './pages/ResetPassword';
 import RegisterVacina from './pages/RegisterVacina';
 import ConsultasUser from './pages/ConsultasUser';
+import EmailVerification from './pages/EmailVerification';
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="/cartaovacinacao" element={<CartaoVacinacao />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/register-vacina" element={<RegisterVacina />} />
+        <Route path="/verify-email" element={<EmailVerification />} />
         {/* outras rotas aqui abaixo*/}
       </Routes>
     </Router>
