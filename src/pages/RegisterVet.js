@@ -55,7 +55,7 @@ function RegisterVet() {
     if (nomeClinica !== '') {
       const { email, name, sub } = jwtDecode(credential?.credential);
       try {
-        const response = await fetch('http://localhost:3003/auth/vet/google/signup', {
+        const response = await fetch('https://backend-ks2k.onrender.com/auth/vet/google/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

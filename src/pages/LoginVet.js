@@ -46,7 +46,7 @@ function LoginVet() {
   const handleGoogleLogin = async (credential) => {
     const { email, sub } = jwtDecode(credential?.credential);
     try {
-      const response = await fetch('http://localhost:3003/auth/vet/google/login', {
+      const response = await fetch('https://backend-ks2k.onrender.com/auth/vet/google/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
